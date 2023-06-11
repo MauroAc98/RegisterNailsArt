@@ -1,7 +1,7 @@
 
 import { ActivityIndicator } from 'react-native';
-import { Turns } from './screens';
 import { useFonts } from 'expo-font';
+import AppNavigator from './navigation';
 
 export default function App() {
 
@@ -17,7 +17,7 @@ export default function App() {
   }
 
   return (
-    <Turns />
+    <AppNavigator />
   );
 }
 
