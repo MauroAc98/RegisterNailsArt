@@ -1,7 +1,7 @@
 
 import { ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
-import AppNavigator from './navigation';
+import Navigation from './navigation';
 
 export default function App() {
 
@@ -17,7 +17,7 @@ export default function App() {
   }
 
   return (
-    <AppNavigator />
+    <Navigation />
   );
 }
 

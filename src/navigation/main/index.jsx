@@ -4,10 +4,12 @@ import { Schedules, Turns } from '../../screens';
 const Stack = createNativeStackNavigator();
 
 const MainNavigator = () => {
-    <Stack.Navigator initialRouteName='Turns'>
-        <Stack.Screen name='Turns' component={Turns} />
-        <Stack.Screen name='Schedules' component={Schedules} />
-    </Stack.Navigator>
+    return (
+        <Stack.Navigator initialRouteName='Turns'>
+            <Stack.Screen name='Turns' component={Turns} options={{ headerShown: false }} />
+            <Stack.Screen name='Schedules' component={Schedules} />
+        </Stack.Navigator>
+    );
 };
 
 export default MainNavigator;
