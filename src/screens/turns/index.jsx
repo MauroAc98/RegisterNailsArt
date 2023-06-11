@@ -5,7 +5,7 @@ import { styles } from './styles';
 const Turns = () => {
     return (
         <View style={styles.container}>
-            <Text>Turns</Text>
+            <Text style={styles.title}>Turns</Text>
         </View>
     )
 }

@@ -6,5 +6,8 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: "#fff",
+    },
+    title:{
+        fontFamily:'Philosopher-BoldItalic',
     }
 });
