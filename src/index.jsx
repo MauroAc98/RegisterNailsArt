@@ -1,18 +1,28 @@
 
 import { ActivityIndicator } from 'react-native';
-import { useFonts } from 'expo-font';
+import { useEffect,useState } from 'react';
 import Navigation from './navigation';
+import { loadAsync } from 'expo-font';
 
 export default function App() {
 
-  const { loaded } = useFonts({
-    "Philosopher-Bold": require('../assets/fonts/Philosopher-Bold.ttf'),
-    "Philosopher-BoldItalic": require('../assets/fonts/Philosopher-BoldItalic.ttf'),
-    "Philosopher-Italic": require('../assets/fonts/Philosopher-Italic.ttf'),
-    "Philosopher-Regular": require('../assets/fonts/Philosopher-Regular.ttf'),
-  })
+  const [isLoading, setLoading] = useState(true);
 
-  if (loaded) {
+  useEffect(() => {
+    const loadFonts = async () => {
+      await loadAsync({
+        'Philosopher-Bold': require('../assets/fonts/Philosopher-Bold.ttf'),
+        'Philosopher-BoldItalic': require('../assets/fonts/Philosopher-BoldItalic.ttf'),
+        'Philosopher-Italic': require('../assets/fonts/Philosopher-Italic.ttf'),
+        'Philosopher-Regular': require('../assets/fonts/Philosopher-Regular.ttf'),
+      });
+      setLoading(false);
+    };
+
+    loadFonts();
+  }, []);
+
+  if (isLoading) {
     return <ActivityIndicator />;
   }
 
