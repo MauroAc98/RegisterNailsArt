@@ -19,10 +19,20 @@ export const SCHEDULES = [
       color: "#F3FFB6",
   
     },
-  
+
     {
   
       id: 3,
+  
+      name: "12:00 PM",
+  
+      color: "#fff",
+  
+    },
+  
+    {
+  
+      id: 4,
   
       name: "14:00 PM",
   
@@ -32,7 +42,7 @@ export const SCHEDULES = [
   
     {
   
-      id: 4,
+      id: 5,
   
       name: "16:00 PM",
   
@@ -42,7 +52,7 @@ export const SCHEDULES = [
   
     {
   
-      id: 5,
+      id: 6,
   
       name: "18:00 PM",
   

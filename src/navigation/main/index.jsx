@@ -5,9 +5,9 @@ const Stack = createNativeStackNavigator();
 
 const MainNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='Turns'>
-            <Stack.Screen name='Turns' component={Turns} options={{ headerShown: false }} />
-            <Stack.Screen name='Schedules' component={Schedules} />
+        <Stack.Navigator initialRouteName='Turnos'>
+            <Stack.Screen name='Turnos' component={Turns}/>
+            <Stack.Screen name='Horarios' component={Schedules} />
         </Stack.Navigator>
     );
 };
