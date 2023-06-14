@@ -5,13 +5,18 @@ import { SCHEDULES } from '../../constants';
 import { ScheduleItem } from "../../components";
 
 
-const Schedules = ({ route }) => {
+const Schedules = ({ route, navigation }) => {
 
-    const renderItem = ({ item }) => <ScheduleItem item={item} />;
+    const onSelected = (item) => {
+
+        navigation.navigate("Confirmar");
+    };
+
+    const renderItem = ({ item }) => <ScheduleItem item={item} onSelected={onSelected} />;
     const keyExtractor = (item) => item.id.toString();
 
     const fechaSeleccionada = route.params.selectedDate;
-  
+
     return (
         <View style={styles.container}>
             <SafeAreaView>

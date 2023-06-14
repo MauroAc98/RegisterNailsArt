@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Schedules, Turns } from '../../screens';
+import { ConfirmTurn, Schedules, Turns } from '../../screens';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -8,6 +9,7 @@ const MainNavigator = () => {
         <Stack.Navigator initialRouteName='Turnos'>
             <Stack.Screen name='Turnos' component={Turns}/>
             <Stack.Screen name='Horarios' component={Schedules} />
+            <Stack.Screen name='Confirmar' component={ConfirmTurn} />
         </Stack.Navigator>
     );
 };

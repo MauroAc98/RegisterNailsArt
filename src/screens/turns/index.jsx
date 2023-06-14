@@ -13,6 +13,11 @@ const Turns = ({ navigation }) => {
     };
 
     const sendDate = () => {
+        if (selectedDate.length === 0) {
+            return;
+        }else{
+            setSelecteDate('');
+        }
         navigation.navigate('Horarios', {
             selectedDate: selectedDate
         });
