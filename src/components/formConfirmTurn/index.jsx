@@ -4,7 +4,7 @@ import { styles } from './style';
 import { useState } from 'react';
 
 
-const FormConfirmTurn = () => {
+const FormConfirmTurn = ({ selectedTime, selectedDate }) => {
 
     const [cliente, setCliente] = useState('');
 
@@ -16,11 +16,11 @@ const FormConfirmTurn = () => {
     return (
         <View style={styles.container}>
             <View style={styles.containerDate}>
-                <Text>
-                    Fecha del turno
+                <Text style={styles.text}>
+                    {selectedDate}
                 </Text>
-                <Text>
-                    Horario del turno
+                <Text style={styles.text}>
+                    {selectedTime}
                 </Text>
             </View>
             <View style={styles.containerClient}>
@@ -30,7 +30,7 @@ const FormConfirmTurn = () => {
                     placeholder="Ingresa nombre completo del cliente" />
             </View>
             <View style={styles.containerButton}>
-                <Button style={styles.button} title={'Confirmar turno'} onPress={() => null} />
+                <Button title={'Confirmar turno'} onPress={() => null} />
             </View>
         </View>
     );

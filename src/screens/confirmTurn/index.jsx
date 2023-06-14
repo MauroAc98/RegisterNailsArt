@@ -4,11 +4,14 @@ import { styles } from './styles';
 import { FormConfirmTurn } from "../../components";
 
 
-const ConfirmTurn = () => {
+const ConfirmTurn = ({route}) => {
+
+    const selectedDate = route.params.selectedDate;
+    const selectedTime = route.params.selectedTime;
 
     return (
         <View style={styles.container}>
-            <FormConfirmTurn />
+            <FormConfirmTurn selectedDate={selectedDate} selectedTime={selectedTime} />
         </View>
     );
 }

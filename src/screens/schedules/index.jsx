@@ -7,15 +7,18 @@ import { ScheduleItem } from "../../components";
 
 const Schedules = ({ route, navigation }) => {
 
-    const onSelected = (item) => {
+    const onSelected = ({name}) => {
 
-        navigation.navigate("Confirmar");
+        navigation.navigate("Confirmar", {
+            selectedDate: selectedDate,
+            selectedTime: name
+        });
     };
 
     const renderItem = ({ item }) => <ScheduleItem item={item} onSelected={onSelected} />;
     const keyExtractor = (item) => item.id.toString();
 
-    const fechaSeleccionada = route.params.selectedDate;
+    const selectedDate = route.params.selectedDate;
 
     return (
         <View style={styles.container}>
