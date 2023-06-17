@@ -2,9 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: "#fff",
-        paddingVertical: 40,
+        paddingVertical: 10,
     },
     containerDate: {
         justifyContent: 'space-evenly',
@@ -25,15 +24,12 @@ export const styles = StyleSheet.create({
         fontFamily: 'Philosopher-Regular',
         fontSize: 15,
     },
-    containerButton: {
-        paddingVertical: 10,
-        alignItems: 'center'
-    },
+  
     text: {
         fontSize: 20,
         fontFamily: 'Philosopher-Regular'
     },
-
+    
 });
 
 export default styles;

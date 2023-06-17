@@ -1,16 +1,21 @@
 
 import { View, Text, Button, TextInput } from 'react-native';
 import { styles } from './style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
-const FormConfirmTurn = ({ selectedTime, selectedDate }) => {
+const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmTurn }) => {
 
     const [cliente, setCliente] = useState('');
+
 
     const onChangeCliente = (value) => {
         setCliente(value);
     };
+
+    useEffect(() => {
+        onConfirmTurn(cliente);
+    }, [cliente])
 
 
     return (
@@ -28,9 +33,6 @@ const FormConfirmTurn = ({ selectedTime, selectedDate }) => {
                     value={cliente}
                     onChangeText={onChangeCliente}
                     placeholder="Ingresa nombre completo del cliente" />
-            </View>
-            <View style={styles.containerButton}>
-                <Button title={'Confirmar turno'} onPress={() => null} />
             </View>
         </View>
     );

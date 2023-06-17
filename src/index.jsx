@@ -1,8 +1,10 @@
 
 import { ActivityIndicator } from 'react-native';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from './navigation';
 import { loadAsync } from 'expo-font';
+import { Provider } from 'react-redux';
+import store from './store/index';
 
 export default function App() {
 
@@ -27,7 +29,9 @@ export default function App() {
   }
 
   return (
-    <Navigation />
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   );
 }
 
