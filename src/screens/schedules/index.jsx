@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { View, FlatList, SafeAreaView } from 'react-native';
 import { styles } from './styles';
-import { SCHEDULES } from '../../constants';
+// import { SCHEDULES } from '../../constants';
 import { ScheduleItem } from "../../components";
+import { useSelector } from 'react-redux';
 
 
 const Schedules = ({ route, navigation }) => {
 
+
+    const availableSchedules = useSelector((state) => state.turns.availableSchedules);
     const onSelected = ({name}) => {
 
         navigation.navigate("Confirmar", {
@@ -24,7 +27,7 @@ const Schedules = ({ route, navigation }) => {
         <View style={styles.container}>
             <SafeAreaView>
                 <FlatList
-                    data={SCHEDULES}
+                    data={availableSchedules}
                     renderItem={renderItem}
                     keyExtractor={keyExtractor}
                 />

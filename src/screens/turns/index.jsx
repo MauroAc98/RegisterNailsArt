@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { View, Button } from 'react-native';
 import { styles } from './styles';
 import { Calendario } from '../../components'
-
+import { useDispatch } from 'react-redux';
+import { filterTurn } from '../../store/actions';
 
 const Turns = ({ navigation }) => {
 
     const [selectedDate, setSelecteDate] = useState('');
+    const dispatch = useDispatch();
 
     const onSelectedDate = (date) => {
         setSelecteDate(date);
@@ -15,9 +17,10 @@ const Turns = ({ navigation }) => {
     const sendDate = () => {
         if (selectedDate.length === 0) {
             return;
-        }else{
+        } else {
             setSelecteDate('');
         }
+        dispatch(filterTurn(selectedDate));
         navigation.navigate('Horarios', {
             selectedDate: selectedDate
         });

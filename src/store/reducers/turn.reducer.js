@@ -1,9 +1,12 @@
 import { turnsTypes } from "../types";
+import { SCHEDULES } from '../../constants';
 
-const { ADD_TURN, REMOVE_TURN } = turnsTypes;
+const { ADD_TURN, REMOVE_TURN, FILTER_TURN } = turnsTypes;
+
 
 const initialState = {
     data: [],
+    availableSchedules: []
 };
 
 const TurnReducer = (state = initialState, action) => {
@@ -20,6 +23,18 @@ const TurnReducer = (state = initialState, action) => {
             return {
                 ...state,
                 data: filteredTurn,
+            };
+
+        case FILTER_TURN:
+            const busySchedules = state.data.filter((item) => item.fecha === action.fecha)
+            const availables = SCHEDULES.filter((schedule) => {
+                // Verificar si el horario actual no está presente en busySchedules
+                return !busySchedules.some((busySchedule) => busySchedule.hora === schedule.name);
+            });
+
+            return {
+                ...state,
+                availableSchedules: availables,
             };
         default:
             return state;

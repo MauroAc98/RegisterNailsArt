@@ -5,7 +5,8 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     button: {
-        marginVertical: 10,
+        backgroundColor:"#fff",
+        padding:20,
         paddingHorizontal: 90,
     }
 
