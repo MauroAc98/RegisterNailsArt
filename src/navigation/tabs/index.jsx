@@ -4,7 +4,6 @@ import ListNavigator from "../listTurns";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Animated } from "react-native";
 import { useRef, useEffect } from "react";
-import { theme } from "../../constants";
 import { useSelector } from "react-redux";
 const BottomTab = createBottomTabNavigator();
 

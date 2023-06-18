@@ -7,5 +7,14 @@ export const styles = StyleSheet.create({
     },
     title:{
         fontFamily:'Philosopher-BoldItalic',
+    },
+    notSchedules:{
+        backgroundColor:"#fff",
+        flex:1,
+        textAlign:"center",
+        paddingVertical:60,
+        fontSize:20,
+        fontFamily:'Philosopher-Regular',
     }
+
 });

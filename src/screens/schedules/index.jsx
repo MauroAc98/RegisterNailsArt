@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { View, FlatList, SafeAreaView } from 'react-native';
+import React from "react";
+import { View, FlatList, SafeAreaView,Text } from 'react-native';
 import { styles } from './styles';
-// import { SCHEDULES } from '../../constants';
 import { ScheduleItem } from "../../components";
 import { useSelector } from 'react-redux';
 
@@ -10,7 +9,7 @@ const Schedules = ({ route, navigation }) => {
 
 
     const availableSchedules = useSelector((state) => state.turns.availableSchedules);
-    const onSelected = ({name}) => {
+    const onSelected = ({ name }) => {
 
         navigation.navigate("Confirmar", {
             selectedDate: selectedDate,
@@ -24,15 +23,17 @@ const Schedules = ({ route, navigation }) => {
     const selectedDate = route.params.selectedDate;
 
     return (
-        <View style={styles.container}>
-            <SafeAreaView>
-                <FlatList
-                    data={availableSchedules}
-                    renderItem={renderItem}
-                    keyExtractor={keyExtractor}
-                />
-            </SafeAreaView>
-        </View>
+
+        availableSchedules.length === 0 ? <Text style={styles.notSchedules}>No hay más horarios disponibles</Text> :
+            (<View style={styles.container}>
+                <SafeAreaView>
+                    <FlatList
+                        data={availableSchedules}
+                        renderItem={renderItem}
+                        keyExtractor={keyExtractor}
+                    />
+                </SafeAreaView>
+            </View>)
     )
 }
 

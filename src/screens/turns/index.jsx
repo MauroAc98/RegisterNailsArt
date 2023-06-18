@@ -30,7 +30,7 @@ const Turns = ({ navigation }) => {
         <View style={styles.container}>
             <Calendario onSelectedDate={onSelectedDate} />
             <View style={styles.button}>
-                <Button title={'Ir a horarios'} onPress={sendDate}></Button>
+                <Button title={'Horarios Disponibles'} onPress={sendDate}></Button>
             </View>
         </View>
     );

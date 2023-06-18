@@ -26,7 +26,7 @@ const Calendario = (props) => {
     const CustomDayComponent = ({ date, state }) => {
         const dayStyle = state === 'disabled' ? styles.disabledDayContainer : styles.dayContainer;
         const dayTextStyle = state === 'disabled' ? styles.disabledDayText : styles.dayText;
-        const isToday = date.dateString === moment().format('YYYY-MM-DD'); // Verificar si es la fecha actual
+        const isToday = date.dateString === moment().format('YYYY-MM-DD'); 
 
         return (
             <TouchableOpacity

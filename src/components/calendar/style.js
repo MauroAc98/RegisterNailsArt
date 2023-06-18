@@ -2,14 +2,14 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center',
         backgroundColor: "#fff",
     },
 
     dayContainer: {
         width: 30,
-        height: 70,
+        height:60,
         alignItems: 'center',
     },
     disabledDayContainer: {
@@ -23,8 +23,13 @@ export const styles = StyleSheet.create({
         color: '#999',
     },
     todayText: {
-        color: 'green',
+        color: '#467599',
         fontWeight: 'bold',
+        backgroundColor: "#A6ECE0",
+        borderRadius:50,
+        paddingHorizontal:5,
+        paddingVertical:5,
+        marginTop:-5
     },
 });
 
