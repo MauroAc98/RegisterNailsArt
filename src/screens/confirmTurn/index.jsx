@@ -3,8 +3,8 @@ import { View, Button } from 'react-native';
 import { styles } from './styles';
 import { FormConfirmTurn } from "../../components";
 import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'react-native-uuid';
 import { addTurn } from "../../store/actions";
+import { COLORS } from "../../constants";
 
 const ConfirmTurn = ({ route, navigation }) => {
 
@@ -18,11 +18,15 @@ const ConfirmTurn = ({ route, navigation }) => {
     };
 
     const turnOk = () => {
+
+        if (cliente.trim() === '') {
+            return;
+        }
         const turn = {
             fecha: selectedDate,
             hora: selectedTime,
             cliente: cliente,
-            color:'#467599'
+            color: COLORS.primary
         }
         dispatch(addTurn(turn));
         navigation.navigate('Turnos');

@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#fff",
+        backgroundColor: COLORS.background,
         paddingVertical: 10,
     },
     containerDate: {
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         width: '70%',
         paddingVertical: 10,
-        borderBottomColor: '#DBDBDB',
+        borderBottomColor: COLORS.disabledBlack,
         borderBottomWidth: 1,
         fontFamily: 'Philosopher-Regular',
         fontSize: 15,

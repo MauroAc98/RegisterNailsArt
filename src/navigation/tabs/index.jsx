@@ -5,7 +5,10 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Animated } from "react-native";
 import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { COLORS } from "../../constants";
+
 const BottomTab = createBottomTabNavigator();
+
 
 const TabsNavigator = () => {
     const turns = useSelector((state) => state.turns.data);
@@ -43,8 +46,8 @@ const TabsNavigator = () => {
                 tabBarLabel: "Ver Turnos",
                 tabBarBadge: turns.length,
                 tabBarBadgeStyle: {
-                    backgroundColor: "#467599",
-                    color: "#fff",
+                    backgroundColor: COLORS.primary,
+                    color: COLORS.white,
                     fontFamily: "Philosopher-Bold",
                     fontSize: 11,
                 },

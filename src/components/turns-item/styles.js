@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
@@ -25,7 +26,7 @@ export const styles = StyleSheet.create({
     name: {
         fontSize: 18,
         fontFamily:'Philosopher-Regular',
-        color:"#fff",
+        color:COLORS.white,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,

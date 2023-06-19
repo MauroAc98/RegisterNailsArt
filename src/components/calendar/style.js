@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: "#fff",
+        backgroundColor: COLORS.background,
     },
 
     dayContainer: {
@@ -17,13 +18,13 @@ export const styles = StyleSheet.create({
     },
     dayText: {
         fontSize: 16,
-        color: '#000',
+        color: COLORS.black,
     },
     disabledDayText: {
-        color: '#999',
+        color: COLORS.disabledBlack,
     },
     todayText: {
-        color: '#467599',
+        color: COLORS.primary,
         fontWeight: 'bold',
         backgroundColor: "#A6ECE0",
         borderRadius:50,

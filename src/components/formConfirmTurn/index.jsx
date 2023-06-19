@@ -1,7 +1,7 @@
 
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { styles } from './style';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback } from 'react';
 
 
 const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmTurn }) => {
@@ -9,14 +9,13 @@ const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmTurn }) => {
     const [cliente, setCliente] = useState('');
 
 
-    const onChangeCliente = (value) => {
+    const onChangeCliente = useCallback((value) => {
         setCliente(value);
-    };
+    }, []);
 
     useEffect(() => {
         onConfirmTurn(cliente);
     }, [cliente])
-
 
     return (
         <View style={styles.container}>
