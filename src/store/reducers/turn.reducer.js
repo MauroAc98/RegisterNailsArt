@@ -6,11 +6,13 @@ const { ADD_TURN, REMOVE_TURN, FILTER_TURN } = turnsTypes;
 
 const initialState = {
     data: [],
-    availableSchedules: []
+    availableSchedules: [],
+    selectedDate: null
 };
 
 const TurnReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case ADD_TURN:
             const newItem = { ...action.item };
             const updatedData = [...state.data, newItem];
@@ -35,6 +37,7 @@ const TurnReducer = (state = initialState, action) => {
             return {
                 ...state,
                 availableSchedules: availables,
+                selectedDate: action.fecha
             };
         default:
             return state;

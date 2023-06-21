@@ -1,11 +1,13 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MainNavigator from "../main";
 import ListNavigator from "../listTurns";
+import SeputNavigator from "../setup";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Animated } from "react-native";
 import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
+
 
 const BottomTab = createBottomTabNavigator();
 
@@ -34,6 +36,17 @@ const TabsNavigator = () => {
                 },
 
             }}>
+
+
+            <BottomTab.Screen name='setupTab' component={SeputNavigator} options={{
+                tabBarLabel: "Configuración",
+                tabBarIcon: ({ focused, color, size }) => (
+                    <Animated.View style={{ opacity: animatedValue }}>
+                        <Ionicons name={focused ? "settings" : "settings-outline"} size={size} color={color} />
+                    </Animated.View>
+                ),
+            }} />
+
             <BottomTab.Screen name='mainTab' component={MainNavigator} options={{
                 tabBarLabel: "Reservar",
                 tabBarIcon: ({ focused, color, size }) => (
@@ -42,6 +55,8 @@ const TabsNavigator = () => {
                     </Animated.View>
                 ),
             }} />
+
+
             <BottomTab.Screen name='listTurnsTab' component={ListNavigator} options={{
                 tabBarLabel: "Ver Turnos",
                 tabBarBadge: turns.length,

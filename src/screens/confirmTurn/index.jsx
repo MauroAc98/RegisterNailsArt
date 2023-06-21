@@ -26,7 +26,7 @@ const ConfirmTurn = ({ route, navigation }) => {
             fecha: selectedDate,
             hora: selectedTime,
             cliente: cliente,
-            color: COLORS.primary
+            color: COLORS.backgroundList
         }
         dispatch(addTurn(turn));
         navigation.navigate('Turnos');

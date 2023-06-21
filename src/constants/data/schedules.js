@@ -6,7 +6,7 @@ export const SCHEDULES = [
   
       name: "8:00 AM",
   
-      color: "#E9DAB2",
+      color: "#BBD1EA",
   
     },
   
@@ -16,7 +16,7 @@ export const SCHEDULES = [
   
       name: "10:00 AM",
   
-      color: "#F3FFB6",
+      color: "#BBD1EA",
   
     },
 
@@ -26,7 +26,7 @@ export const SCHEDULES = [
   
       name: "12:00 PM",
   
-      color: "#fff",
+      color: "#BBD1EA",
   
     },
   
@@ -36,7 +36,7 @@ export const SCHEDULES = [
   
       name: "14:00 PM",
   
-      color: "#D0F4DE",
+      color: "#BBD1EA",
   
     },
   
@@ -46,7 +46,7 @@ export const SCHEDULES = [
   
       name: "16:00 PM",
   
-      color: "#E4DFDA",
+      color: "#BBD1EA",
   
     },
   
@@ -56,7 +56,7 @@ export const SCHEDULES = [
   
       name: "18:00 PM",
   
-      color: "#CFFFB3",
+      color: "#BBD1EA",
   
     },
   

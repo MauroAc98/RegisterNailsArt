@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     name: {
         fontSize: 18,
         fontFamily:'Philosopher-Regular',
-        color:COLORS.white,
+        color:COLORS.text,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,

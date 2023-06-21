@@ -4,6 +4,9 @@ import { styles } from './style';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 import 'moment/locale/es';
+import { useDispatch } from 'react-redux';
+import { filterTurn } from '../../store/actions';
+
 
 moment.locale('es');
 
@@ -17,34 +20,47 @@ LocaleConfig.locales['es'] = {
 
 LocaleConfig.defaultLocale = 'es';
 
-const Calendario = (props) => {
+const Calendario = () => {
+
+    const dispatch = useDispatch();
 
     const handleDayPress = (day) => {
-        props.onSelectedDate(day.dateString);
+        dispatch(filterTurn(day.dateString));
     };
 
     const CustomDayComponent = ({ date, state }) => {
-        const dayStyle = state === 'disabled' ? styles.disabledDayContainer : styles.dayContainer;
-        const dayTextStyle = state === 'disabled' ? styles.disabledDayText : styles.dayText;
-        const isToday = date.dateString === moment().format('YYYY-MM-DD'); 
+        const dayStyle = [styles.dayContainer]; 
+
+        if (state === 'disabled') {
+            dayStyle.push(styles.disabledDayContainer);
+        }
+
+        const isToday = date.dateString === moment().format('YYYY-MM-DD');
 
         return (
             <TouchableOpacity
-                style={[dayStyle, isToday]}
+                style={[dayStyle, isToday && styles.todayContainer]}
                 onPress={() => handleDayPress(date)}
             >
-                <Text style={[dayTextStyle, isToday && styles.todayText]}>{date.day}</Text>
+                <Text style={[styles.dayText, state === 'disabled' && styles.disabledDayText, isToday && styles.todayText]}>
+                    {date.day}
+                </Text>
             </TouchableOpacity>
         );
     };
 
     return (
+
+
         <View style={styles.container}>
-            <Calendar
-                dayComponent={CustomDayComponent}
-                onDayPress={handleDayPress}
-            />
+            <View style={styles.calendarContainer}>
+                <Calendar
+                    dayComponent={CustomDayComponent}
+                    onDayPress={handleDayPress}
+                />
+            </View>
         </View>
+
     );
 }
 
