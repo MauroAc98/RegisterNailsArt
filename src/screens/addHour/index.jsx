@@ -22,14 +22,14 @@ const AddHour = ({ navigation }) => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Button
-                        title='Cancelar'
-                        color={COLORS.primary}
-                        onPress={onHandlerCancel}
-                    />
-                    <Button
                         title='Confirmar'
                         color={COLORS.primary}
                         onPress={onHandlerConfirm}
+                    />
+                    <Button
+                        title='Cancelar'
+                        color={COLORS.primary}
+                        onPress={onHandlerCancel}
                     />
                 </View>
             </View>
