@@ -3,13 +3,15 @@ import { COLORS } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: COLORS.background,
-        paddingVertical: 40,
-        flex: 1
+      paddingVertical:30,
+      backgroundColor:COLORS.background,
+      flex:1,
     },
-    containerButton: {
-        alignItems: 'center'
-    },
+    containerConfirm:{
+        paddingVertical:20,
+        backgroundColor:COLORS.background,
+        marginHorizontal:40
+    }
 });
 
 export default styles;

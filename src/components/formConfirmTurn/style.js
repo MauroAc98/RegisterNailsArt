@@ -18,12 +18,12 @@ export const styles = StyleSheet.create({
     },
     input: {
         textAlign: 'center',
-        width: '70%',
+        width: '90%',
         paddingVertical: 10,
         borderBottomColor: COLORS.disabledBlack,
         borderBottomWidth: 1,
         fontFamily: 'Philosopher-Regular',
-        fontSize: 15,
+        fontSize: 16,
     },
   
     text: {

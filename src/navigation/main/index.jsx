@@ -4,13 +4,13 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity } from 'react-native';
 import { COLORS } from '../../constants';
 import { useSelector } from 'react-redux';
-import moment from 'moment';
-import 'moment/locale/es';
+import { formatterDate } from '../../util/functions';
+
 
 const Stack = createNativeStackNavigator();
 
 const MainNavigator = ({ navigation }) => {
-    moment.locale('es');
+  
 
     const selectedDate = useSelector((state) => state.turns.selectedDate);
 
@@ -37,9 +37,9 @@ const MainNavigator = ({ navigation }) => {
                 }
             })} />
             <Stack.Screen name='Horarios' component={Schedules} options={({ route }) => ({
-                title: moment(route.params.selectedDate).format('dddd, D [de] MMMM [del] YYYY'),
+                title: formatterDate(route.params.selectedDate),
                 headerTitleStyle: {
-                    fontSize: 17, // Tamaño de fuente deseado
+                    fontSize: 17, 
                     color: COLORS.white,
                 },
                 headerStyle: {

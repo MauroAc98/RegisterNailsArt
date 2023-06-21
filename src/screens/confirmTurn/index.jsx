@@ -34,9 +34,9 @@ const ConfirmTurn = ({ route, navigation }) => {
 
     return (
         <View style={styles.container}>
-            <FormConfirmTurn selectedDate={selectedDate} selectedTime={selectedTime} onConfirmTurn={handleConfirmTurn} />
-            <View style={styles.containerButton}>
-                <Button title={'Confirmar turno'} onPress={turnOk} />
+            <View style={styles.containerConfirm}>
+                <FormConfirmTurn selectedDate={selectedDate} selectedTime={selectedTime} onConfirmTurn={handleConfirmTurn} />
+                <Button title={'Confirmar turno'} onPress={turnOk} color={COLORS.primary} />
             </View>
         </View>
     );

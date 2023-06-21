@@ -32,28 +32,42 @@ const TabsNavigator = () => {
                 headerShown: false,
                 tabBarLabelStyle: {
                     fontFamily: "Philosopher-Bold",
-                    fontSize: 16,
+                    fontSize: 11,
                 },
 
             }}>
 
 
             <BottomTab.Screen name='setupTab' component={SeputNavigator} options={{
-                tabBarLabel: "Configuración",
-                tabBarIcon: ({ focused, color, size }) => (
+                tabBarLabel: "Setup",
+                tabBarIcon: ({ focused, size }) => (
                     <Animated.View style={{ opacity: animatedValue }}>
-                        <Ionicons name={focused ? "settings" : "settings-outline"} size={size} color={color} />
+                        <Ionicons name={focused ? "settings" : "settings-outline"} size={size} color={COLORS.white} />
                     </Animated.View>
                 ),
+                tabBarStyle: {
+                    backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
+                },
+                tabBarLabelStyle: {
+                    color: COLORS.white, 
+                    fontSize:12
+                },
             }} />
 
             <BottomTab.Screen name='mainTab' component={MainNavigator} options={{
                 tabBarLabel: "Reservar",
-                tabBarIcon: ({ focused, color, size }) => (
+                tabBarIcon: ({ focused, size }) => (
                     <Animated.View style={{ opacity: animatedValue }}>
-                        <Ionicons name={focused ? "duplicate" : "duplicate-outline"} size={size} color={color} />
+                        <Ionicons name={focused ? "duplicate" : "duplicate-outline"} size={size} color={COLORS.white} />
                     </Animated.View>
                 ),
+                tabBarStyle: {
+                    backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
+                },
+                tabBarLabelStyle: {
+                    color: COLORS.white, 
+                    fontSize:12
+                },
             }} />
 
 
@@ -68,9 +82,16 @@ const TabsNavigator = () => {
                 },
                 tabBarIcon: ({ focused, color, size }) => (
                     <Animated.View style={{ opacity: animatedValue }}>
-                        <Ionicons name={focused ? "clipboard" : "clipboard-outline"} size={size} color={color} />
+                        <Ionicons name={focused ? "clipboard" : "clipboard-outline"} size={size} color={COLORS.white} />
                     </Animated.View>
                 ),
+                tabBarStyle: {
+                    backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
+                },
+                tabBarLabelStyle: {
+                    color: COLORS.white, 
+                    fontSize:12
+                },
             }} />
         </BottomTab.Navigator>
     )
