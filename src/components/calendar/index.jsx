@@ -6,6 +6,7 @@ import moment from 'moment';
 import 'moment/locale/es';
 import { useDispatch } from 'react-redux';
 import { filterTurn } from '../../store/actions';
+import { useState } from 'react';
 
 
 moment.locale('es');
@@ -23,26 +24,33 @@ LocaleConfig.defaultLocale = 'es';
 const Calendario = () => {
 
     const dispatch = useDispatch();
+    const [selectedDate, setSelectedDate] = useState(null);
 
     const handleDayPress = (day) => {
         dispatch(filterTurn(day.dateString));
+        setSelectedDate(day.dateString);
     };
 
     const CustomDayComponent = ({ date, state }) => {
-        const dayStyle = [styles.dayContainer]; 
-
-        if (state === 'disabled') {
-            dayStyle.push(styles.disabledDayContainer);
-        }
-
-        const isToday = date.dateString === moment().format('YYYY-MM-DD');
+        const isSelected = selectedDate === date.dateString;
 
         return (
             <TouchableOpacity
-                style={[dayStyle, isToday && styles.todayContainer]}
+                style={[
+                    styles.dayContainer,
+                    state === 'disabled' && styles.disabledDayContainer,
+                    isSelected && styles.selectedDayContainer,
+                ]}
                 onPress={() => handleDayPress(date)}
+                disabled={state === 'disabled'}
             >
-                <Text style={[styles.dayText, state === 'disabled' && styles.disabledDayText, isToday && styles.todayText]}>
+                <Text
+                    style={[
+                        styles.dayText,
+                        state === 'disabled' && styles.disabledDayText,
+                        isSelected && styles.selectedDayText,
+                    ]}
+                >
                     {date.day}
                 </Text>
             </TouchableOpacity>
@@ -50,7 +58,6 @@ const Calendario = () => {
     };
 
     return (
-
 
         <View style={styles.container}>
             <View style={styles.calendarContainer}>

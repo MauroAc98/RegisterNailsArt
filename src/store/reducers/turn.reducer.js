@@ -1,7 +1,7 @@
 import { turnsTypes } from "../types";
 import { SCHEDULES } from '../../constants';
 
-const { ADD_TURN, REMOVE_TURN, FILTER_TURN } = turnsTypes;
+const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE } = turnsTypes;
 
 
 const initialState = {
@@ -38,6 +38,12 @@ const TurnReducer = (state = initialState, action) => {
                 ...state,
                 availableSchedules: availables,
                 selectedDate: action.fecha
+            };
+
+        case REFRESH_DATE:
+            return {
+                ...state,
+                selectedDate: null
             };
         default:
             return state;
