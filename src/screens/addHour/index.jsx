@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, Button, TextInput } from "react-native";
+import { View, Text, Button } from "react-native";
 import { styles } from "./styles";
 import { COLORS } from "../../constants";
+import TimePicker from "../../components/timePicker";
 
 const AddHour = ({ navigation }) => {
 
@@ -18,7 +19,7 @@ const AddHour = ({ navigation }) => {
             <View style={styles.addContent}>
                 <Text style={styles.title}>Nuevo horario de atención</Text>
                 <View style={styles.inputContainer}>
-                    <TextInput style={styles.input} placeholder="Agregar un nuevo horario" onChange={null} />
+                    <TimePicker />
                 </View>
                 <View style={styles.buttonContainer}>
                     <Button

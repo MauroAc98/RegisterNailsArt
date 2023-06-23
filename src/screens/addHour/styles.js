@@ -4,10 +4,10 @@ import { COLORS } from "../../constants";
 export const styles = StyleSheet.create({
 
     title: {
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 19,
         marginBottom: 10,
-        textAlign: "center"
+        textAlign: "center",
+        fontFamily:'Philosopher-Bold'
     },
     inputContainer: {
         paddingVertical: 25,

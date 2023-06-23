@@ -5,6 +5,16 @@ import Navigation from './navigation';
 import { loadAsync } from 'expo-font';
 import { Provider } from 'react-redux';
 import store from './store/index';
+import { init } from "./db";
+
+init()
+  .then(() => {
+    console.log("Inicializando base de datos");
+  })
+  .catch((err) => {
+    console.log("Inicialización fallida");
+    console.log(err);
+  });
 
 export default function App() {
 

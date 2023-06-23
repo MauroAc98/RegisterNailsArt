@@ -31,6 +31,7 @@ const Calendario = () => {
         setSelectedDate(day.dateString);
     };
 
+
     const CustomDayComponent = ({ date, state }) => {
         const isSelected = selectedDate === date.dateString;
 
