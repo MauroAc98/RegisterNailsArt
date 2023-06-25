@@ -3,23 +3,13 @@ import { View, FlatList, SafeAreaView } from 'react-native';
 import { styles } from './styles';
 import { TurnItem } from "../../components";
 import { useSelector } from 'react-redux';
-// import { useFocusEffect } from "@react-navigation/native";
-// import { getTurns } from "../../store/actions";
-
 
 const ListTurns = () => {
 
-    // const dispatch = useDispatch();
-    // useFocusEffect(
-    //     useCallback(() => {
-    //         dispatch(getTurns());
-    //     }, [dispatch])
-    // );
-
     const ListTurns = useSelector((state) => state.turns.data);
     const generateUniqueId = () => {
-        const timestamp = Date.now().toString(36); // Obtén una representación en base 36 de la fecha actual
-        const randomSuffix = Math.random().toString(36).substr(2, 5); // Genera un sufijo aleatorio de 5 caracteres
+        const timestamp = Date.now().toString(36); 
+        const randomSuffix = Math.random().toString(36).substr(2, 5); 
         return `${timestamp}-${randomSuffix}`;
     }
 

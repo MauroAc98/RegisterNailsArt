@@ -9,8 +9,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { COLORS } from "../../constants";
 
 
-
-
 const BottomTab = createBottomTabNavigator();
 
 

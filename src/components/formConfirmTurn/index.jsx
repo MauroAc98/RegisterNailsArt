@@ -3,7 +3,7 @@ import { View, Text, TextInput } from 'react-native';
 import { styles } from './style';
 import { useEffect, useState, useCallback } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { formatterDate } from '../../util/functions';
+import { formatter } from '../../util/functions';
 
 
 
@@ -25,7 +25,7 @@ const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmTurn }) => {
             <View style={styles.container}>
                 <View style={styles.containerDate}>
                     <Text style={styles.text}>
-                        {formatterDate(selectedDate)}
+                        {formatter(selectedDate,'normal')}
                     </Text>
                     <Text style={styles.text}>
                         {selectedTime}

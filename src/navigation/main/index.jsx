@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity } from 'react-native';
 import { COLORS } from '../../constants';
 import { useSelector } from 'react-redux';
-import { formatterDate } from '../../util/functions';
+import { formatter } from '../../util/functions';
 
 
 const Stack = createNativeStackNavigator();
@@ -35,7 +35,7 @@ const MainNavigator = ({ navigation }) => {
                 }
             })} />
             <Stack.Screen name='Horarios' component={Schedules} options={({ route }) => ({
-                title: formatterDate(route.params.selectedDate),
+                title: formatter(route.params.selectedDate,'normal'),
                 headerTitleStyle: {
                     fontSize: 17,
                     color: COLORS.white,
