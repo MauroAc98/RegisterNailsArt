@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Platform, TextInput, View } from "react-native";
 import { styles } from "./styles";
 import { useState } from "react";
@@ -6,7 +6,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import ButtonCustom from "../buttonCustom";
 
 
-const TimePicker = () => {
+const TimePicker = ({ onConfirmHour }) => {
 
     const [showTimePicker, setShowTimePicker] = useState(false);
     const [selectedTime, setSelectedTime] = useState(new Date());
@@ -32,6 +32,10 @@ const TimePicker = () => {
         const formattedTime = `${hours}:${minutes} ${amPm}`;
         return formattedTime;
     };
+
+    useEffect(() => {
+        onConfirmHour(formatTime(selectedTime));
+    }, [selectedTime])
 
     return (
         <View style={styles.container}>

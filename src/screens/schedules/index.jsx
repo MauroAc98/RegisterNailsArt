@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 const Schedules = ({ route, navigation }) => {
 
-
     const availableSchedules = useSelector((state) => state.turns.availableSchedules);
     const onSelected = ({ name }) => {
 

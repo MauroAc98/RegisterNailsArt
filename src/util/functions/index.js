@@ -19,3 +19,33 @@ export const formatter = (caracter, type) => {
     }
 };
 
+export const compareHours = (a, b) => {
+    const timeA = getTimeInMinutes(a.hour);
+    const timeB = getTimeInMinutes(b.hour);
+
+    if (timeA !== timeB) {
+        return timeA - timeB;
+    } else {
+        return getAmPmValue(a.hour) - getAmPmValue(b.hour); 
+    }
+};
+
+
+const getTimeInMinutes = (hour) => {
+    const [time, ampm] = hour.split(" ");
+    const [hours, minutes] = time.split(":");
+
+    let timeInMinutes = parseInt(hours, 10) * 60 + parseInt(minutes, 10);
+
+    if (ampm === "PM") {
+        timeInMinutes += 12 * 60; 
+    }
+
+    return timeInMinutes;
+};
+
+
+const getAmPmValue = (hour) => {
+    return hour.endsWith("AM") ? 0 : 1;
+};
+

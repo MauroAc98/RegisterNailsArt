@@ -5,7 +5,7 @@ import SeputNavigator from "../setup";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Animated } from "react-native";
 import { useRef, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 
 

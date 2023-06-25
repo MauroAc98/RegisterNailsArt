@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { TurnReducer } from "./reducers/index";
+import { TurnReducer, HoursReducer } from "./reducers/index";
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
-    turns: TurnReducer
+    turns: TurnReducer,
+    hours: HoursReducer
 });
 
 export default createStore(rootReducer, applyMiddleware(thunk));
