@@ -1,24 +1,28 @@
 import { turnsTypes } from "../types";
 import { SCHEDULES } from '../../constants';
 
-const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE } = turnsTypes;
+const { ADD_TURN, REMOVE_TURN, FILTER_TURN, GET_TURNS, NO_TURNS_RETRIEVED, REFRESH_DATE } = turnsTypes;
 
 
 const initialState = {
     data: [],
     availableSchedules: [],
-    selectedDate: null
+    selectedDate: null,
 };
 
 const TurnReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_TURN:
-            const newItem = { ...action.item };
-            const updatedData = [...state.data, newItem];
             return {
                 ...state,
-                data: updatedData,
+            };
+
+        case GET_TURNS:
+            return {
+                ...state,
+                data: action.turns,
+                noTurnsRetrieved: false,
             };
         case REMOVE_TURN:
             const filteredTurn = state.data.filter((item) => item.id !== action.id)
@@ -27,24 +31,32 @@ const TurnReducer = (state = initialState, action) => {
                 data: filteredTurn,
             };
 
-        case FILTER_TURN:
-            const busySchedules = state.data.filter((item) => item.fecha === action.fecha)
-            const availables = SCHEDULES.filter((schedule) => {
-                // Verificar si el horario actual no está presente en busySchedules
-                return !busySchedules.some((busySchedule) => busySchedule.hora === schedule.name);
-            });
-
+        case NO_TURNS_RETRIEVED:
             return {
                 ...state,
-                availableSchedules: availables,
-                selectedDate: action.fecha
             };
 
         case REFRESH_DATE:
             return {
-                ...state,
-                selectedDate: null
+                selectedDate: null,
             };
+
+        case FILTER_TURN:
+            let availables = [];
+            if (state.data) {
+                const busySchedules = state.data.filter(({ item }) => item.fecha === action.fecha);
+                availables = SCHEDULES.filter((schedule) => {
+                    return !busySchedules.some(({ item }) => item.hora === schedule.name);
+                });
+            }
+
+            return {
+                ...state,
+                availableSchedules: state.data ? availables : SCHEDULES,
+                selectedDate: action.fecha
+            };
+
+
         default:
             return state;
     }

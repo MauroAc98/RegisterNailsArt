@@ -5,8 +5,10 @@ import SeputNavigator from "../setup";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Animated } from "react-native";
 import { useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { COLORS } from "../../constants";
+
+
 
 
 const BottomTab = createBottomTabNavigator();
@@ -26,6 +28,8 @@ const TabsNavigator = () => {
     useEffect(() => {
         tabIconAnimation();
     }, [tabIconAnimation]);
+
+
     return (
         <BottomTab.Navigator initialRouteName="mainTab"
             screenOptions={{
@@ -49,8 +53,8 @@ const TabsNavigator = () => {
                     backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
                 },
                 tabBarLabelStyle: {
-                    color: COLORS.white, 
-                    fontSize:12
+                    color: COLORS.white,
+                    fontSize: 12
                 },
             }} />
 
@@ -65,15 +69,15 @@ const TabsNavigator = () => {
                     backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
                 },
                 tabBarLabelStyle: {
-                    color: COLORS.white, 
-                    fontSize:12
+                    color: COLORS.white,
+                    fontSize: 12
                 },
             }} />
 
 
             <BottomTab.Screen name='listTurnsTab' component={ListNavigator} options={{
                 tabBarLabel: "Ver Turnos",
-                tabBarBadge: turns.length,
+                tabBarBadge: turns?.length,
                 tabBarBadgeStyle: {
                     backgroundColor: COLORS.primary,
                     color: COLORS.white,
@@ -89,8 +93,8 @@ const TabsNavigator = () => {
                     backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
                 },
                 tabBarLabelStyle: {
-                    color: COLORS.white, 
-                    fontSize:12
+                    color: COLORS.white,
+                    fontSize: 12
                 },
             }} />
         </BottomTab.Navigator>

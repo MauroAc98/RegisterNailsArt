@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { View, FlatList, SafeAreaView } from 'react-native';
 import { styles } from './styles';
 import { TurnItem } from "../../components";
 import { useSelector } from 'react-redux';
+// import { useFocusEffect } from "@react-navigation/native";
+// import { getTurns } from "../../store/actions";
+
 
 const ListTurns = () => {
+
+    // const dispatch = useDispatch();
+    // useFocusEffect(
+    //     useCallback(() => {
+    //         dispatch(getTurns());
+    //     }, [dispatch])
+    // );
 
     const ListTurns = useSelector((state) => state.turns.data);
     const generateUniqueId = () => {
@@ -14,7 +24,6 @@ const ListTurns = () => {
     }
 
     const renderItem = ({ item }) => <TurnItem item={item} onSelected={() => null} />;
-
 
     return (
         <View style={styles.container}>

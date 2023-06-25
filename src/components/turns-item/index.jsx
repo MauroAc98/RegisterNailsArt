@@ -3,11 +3,11 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
+const TurnItem = ({ item:{item}, onSelected }) => {
 
-const TurnItem = ({ item, onSelected }) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={{ ...styles.containerTouchable, backgroundColor: item.color }} onPress={() => onSelected(item)}>
+            <TouchableOpacity style={{ ...styles.containerTouchable, backgroundColor: item.color }} onPress={() => onSelected(turn)}>
                 <View>
                     <Text style={styles.name}>
                         {item.fecha}

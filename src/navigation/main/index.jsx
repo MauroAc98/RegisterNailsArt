@@ -3,15 +3,15 @@ import { ConfirmTurn, Schedules, Turns } from '../../screens';
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity } from 'react-native';
 import { COLORS } from '../../constants';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { formatterDate } from '../../util/functions';
+
 
 const Stack = createNativeStackNavigator();
 
 const MainNavigator = ({ navigation }) => {
 
     const selectedDate = useSelector((state) => state.turns.selectedDate);
-
     const onHandlerHour = () => {
         if (!selectedDate) return;
         navigation.navigate('Horarios', { selectedDate: selectedDate });

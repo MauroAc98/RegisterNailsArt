@@ -4,7 +4,7 @@ import { styles } from './styles';
 import { Calendario } from '../../components'
 import { useIsFocused } from '@react-navigation/native';
 import { useDispatch } from "react-redux";
-import { refreshDate } from "../../store/actions";
+import { getTurns, refreshDate, } from "../../store/actions";
 
 const Turns = () => {
   const isFocused = useIsFocused();
@@ -12,8 +12,11 @@ const Turns = () => {
   const [calendarioKey, setCalendarioKey] = useState(0);
 
   useEffect(() => {
+
     if (isFocused) {
-      dispatch(refreshDate());
+      dispatch(refreshDate())
+      dispatch(getTurns());
+
       setCalendarioKey((prevKey) => prevKey + 1);
     }
   }, [isFocused]);

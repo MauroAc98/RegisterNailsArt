@@ -1,0 +1,1 @@
+export const FIREBASE_REAL_TIME_URL_DB = "https://registernailsart-default-rtdb.firebaseio.com/";
