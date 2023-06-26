@@ -27,18 +27,20 @@ const MainNavigator = ({ navigation }) => {
                     </TouchableOpacity>
                 ),
                 headerTitleStyle: {
-                    fontSize: 17,
                     color: COLORS.white,
+                    fontFamily:'Philosopher-Regular',
+                    fontSize: 20,
                 },
                 headerStyle: {
-                    backgroundColor: COLORS.primary
+                    backgroundColor: COLORS.primary,
                 }
             })} />
             <Stack.Screen name='Horarios' component={Schedules} options={({ route }) => ({
                 title: formatter(route.params.selectedDate,'normal'),
                 headerTitleStyle: {
-                    fontSize: 17,
                     color: COLORS.white,
+                    fontFamily:'Philosopher-Regular',
+                    fontSize: 20,
                 },
                 headerStyle: {
                     backgroundColor: COLORS.primary
@@ -48,7 +50,8 @@ const MainNavigator = ({ navigation }) => {
             <Stack.Screen name='Confirmar' component={ConfirmTurn} options={() => ({
                 title: "Confirmar turno",
                 headerTitleStyle: {
-                    fontSize: 17,
+                    fontFamily:'Philosopher-Regular',
+                    fontSize: 20,
                     color: COLORS.white,
                 },
                 headerStyle: {

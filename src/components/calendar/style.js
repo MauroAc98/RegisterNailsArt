@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
-    marginVertical: 10
+    marginVertical: 12
   },
   disabledDayContainer: {
     opacity: 0.5,
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     borderWidth: 0,
   },
   dayText: {
-    fontSize: 14,
+    fontFamily:'Philosopher-Regular',
     color: COLORS.black,
   },
   disabledDayText: {

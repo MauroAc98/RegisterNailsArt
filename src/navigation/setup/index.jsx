@@ -19,7 +19,8 @@ const SetupNavigator = () => {
                     </TouchableOpacity>
                 ),
                 headerTitleStyle: {
-                    fontSize: 17,
+                    fontFamily:'Philosopher-Regular',
+                    fontSize: 20,
                     color: COLORS.white,
                 },
                 headerStyle: {

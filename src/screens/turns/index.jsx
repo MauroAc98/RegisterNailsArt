@@ -13,7 +13,6 @@ const Turns = () => {
   const data = useSelector((state) => state.hours.data);
 
   useEffect(() => {
-
     if (isFocused) {
       dispatch(refreshDate(data))
       dispatch(getTurns());

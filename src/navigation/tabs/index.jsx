@@ -41,18 +41,19 @@ const TabsNavigator = () => {
 
 
             <BottomTab.Screen name='setupTab' component={SeputNavigator} options={{
-                tabBarLabel: "Setup",
+                tabBarLabel: "",
                 tabBarIcon: ({ focused, size }) => (
                     <Animated.View style={{ opacity: animatedValue }}>
                         <Ionicons name={focused ? "settings" : "settings-outline"} size={size} color={COLORS.white} />
                     </Animated.View>
                 ),
                 tabBarStyle: {
-                    backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
+                    backgroundColor: COLORS.primary,
                 },
                 tabBarLabelStyle: {
                     color: COLORS.white,
-                    fontSize: 12
+                    fontFamily: 'Philosopher-Bold',
+                    fontSize:12
                 },
             }} />
 
@@ -64,11 +65,12 @@ const TabsNavigator = () => {
                     </Animated.View>
                 ),
                 tabBarStyle: {
-                    backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
+                    backgroundColor: COLORS.primary,
                 },
                 tabBarLabelStyle: {
                     color: COLORS.white,
-                    fontSize: 12
+                    fontFamily: 'Philosopher-Bold',
+                    fontSize:12
                 },
             }} />
 
@@ -88,11 +90,12 @@ const TabsNavigator = () => {
                     </Animated.View>
                 ),
                 tabBarStyle: {
-                    backgroundColor: COLORS.primary, // Cambiar el color de fondo aquí
+                    backgroundColor: COLORS.primary, 
                 },
                 tabBarLabelStyle: {
                     color: COLORS.white,
-                    fontSize: 12
+                    fontFamily: 'Philosopher-Bold',
+                    fontSize:12
                 },
             }} />
         </BottomTab.Navigator>

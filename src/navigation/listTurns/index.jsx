@@ -9,16 +9,17 @@ const Stack = createNativeStackNavigator();
 const ListNavigator = () => {
     return (
         <Stack.Navigator initialRouteName='Lista'>
-            <Stack.Screen name='Lista' component={ListTurns} options={()=>({
-                 title:"Turnos confirmados",
-                 headerTitleStyle: {
-                     fontSize: 17,
-                     color: COLORS.white,
-                 },
-                 headerStyle: {
-                     backgroundColor: COLORS.primary
-                 }
-            })}/>
+            <Stack.Screen name='Lista' component={ListTurns} options={() => ({
+                title: "Turnos confirmados",
+                headerTitleStyle: {
+                    fontFamily: 'Philosopher-Regular',
+                    fontSize: 20,
+                    color: COLORS.white,
+                },
+                headerStyle: {
+                    backgroundColor: COLORS.primary
+                }
+            })} />
         </Stack.Navigator>
     );
 };
