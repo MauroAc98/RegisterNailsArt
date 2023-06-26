@@ -1,7 +1,7 @@
-import { insertHour, selectHours } from "../../db";
+import { insertHour, selectHours,deleteHour } from "../../db";
 import { hoursTypes } from "../types";
 
-const { ADD_HOUR, GET_HOURS } = hoursTypes
+const { ADD_HOUR, GET_HOURS,DELETE_HOUR } = hoursTypes
 
 
 export const addHour = (fecha) => {
@@ -17,6 +17,25 @@ export const addHour = (fecha) => {
         } catch (error) {
             console.log(error);
         }
+    }
+};
+
+export const deleteHr = (id) => {
+
+    return async (dispatch) => {
+        try {
+
+            const result = await deleteHour(id);
+
+            dispatch({
+                type: DELETE_HOUR,
+                result
+            });
+
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

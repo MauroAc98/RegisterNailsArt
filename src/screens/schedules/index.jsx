@@ -8,11 +8,11 @@ import { useSelector } from 'react-redux';
 const Schedules = ({ route, navigation }) => {
 
     const availableSchedules = useSelector((state) => state.turns.availableSchedules);
-    const onSelected = ({ name }) => {
+    const onSelected = ({ hour }) => {
 
         navigation.navigate("Confirmar", {
             selectedDate: selectedDate,
-            selectedTime: name
+            selectedTime: hour
         });
     };
 

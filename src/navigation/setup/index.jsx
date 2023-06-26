@@ -12,14 +12,14 @@ const SetupNavigator = () => {
     return (
         <Stack.Navigator initialRouteName='Setup' >
             <Stack.Screen name='Setup' component={Config} options={({navigation}) => ({
-                title: "Configuración",
+                title: "Configurar horarios",
                 headerRight: () => (
                     <TouchableOpacity onPress={() => navigation.navigate('AddHour')}>
                         <Ionicons name="add-circle-outline" size={30} color={COLORS.lightGray} />
                     </TouchableOpacity>
                 ),
                 headerTitleStyle: {
-                    fontSize: 17, // Tamaño de fuente deseado
+                    fontSize: 17,
                     color: COLORS.white,
                 },
                 headerStyle: {

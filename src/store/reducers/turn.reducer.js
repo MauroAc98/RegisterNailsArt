@@ -1,16 +1,17 @@
 import { turnsTypes } from "../types";
-import { SCHEDULES } from '../../constants';
 
-const { ADD_TURN, REMOVE_TURN, FILTER_TURN, GET_TURNS, NO_TURNS_RETRIEVED, REFRESH_DATE } = turnsTypes;
+const { ADD_TURN, REMOVE_TURN, FILTER_TURN, GET_TURNS, NO_TURNS_RETRIEVED, REFRESH_DATE, LOADED_HOURS } = turnsTypes;
 
 
 const initialState = {
     data: [],
     availableSchedules: [],
     selectedDate: null,
+    schedules: []
 };
 
 const TurnReducer = (state = initialState, action) => {
+
     switch (action.type) {
 
         case ADD_TURN:
@@ -39,23 +40,24 @@ const TurnReducer = (state = initialState, action) => {
         case REFRESH_DATE:
             return {
                 selectedDate: null,
+                schedules:action.data
             };
 
         case FILTER_TURN:
             let availables = [];
             if (state.data) {
                 const busySchedules = state.data.filter(({ item }) => item.fecha === action.fecha);
-                availables = SCHEDULES.filter((schedule) => {
-                    return !busySchedules.some(({ item }) => item.hora === schedule.name);
+                availables = state.schedules.filter(({hour}) => {
+                    return !busySchedules.some(({ item }) => item.hora === hour);
                 });
+
             }
 
             return {
                 ...state,
-                availableSchedules: state.data ? availables : SCHEDULES,
+                availableSchedules: state.data ? availables : state.schedules,
                 selectedDate: action.fecha
             };
-
 
         default:
             return state;

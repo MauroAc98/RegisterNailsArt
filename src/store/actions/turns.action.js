@@ -1,7 +1,7 @@
 import { turnsTypes } from "../types";
 import { FIREBASE_REAL_TIME_URL_DB } from '../../constants/index'
 
-const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE, GET_TURNS,NO_TURNS_RETRIEVED } = turnsTypes
+const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE, GET_TURNS, NO_TURNS_RETRIEVED } = turnsTypes
 
 
 export const addTurn = (turn) => {
@@ -28,6 +28,8 @@ export const addTurn = (turn) => {
         }
     }
 };
+
+
 
 
 export const getTurns = () => {
@@ -66,18 +68,19 @@ export const getTurns = () => {
     }
 };
 
+
 export const removeTurn = (id) => ({
     type: REMOVE_TURN,
     id,
 });
 
 export const filterTurn = (fecha) => ({
-
     type: FILTER_TURN,
     fecha
 });
-export const refreshDate = () => ({
+export const refreshDate = (data) => ({
     type: REFRESH_DATE,
+    data
 });
 
 

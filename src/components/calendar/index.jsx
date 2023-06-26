@@ -4,7 +4,7 @@ import { styles } from './style';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 import 'moment/locale/es';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterTurn } from '../../store/actions';
 import { useState } from 'react';
 
@@ -22,6 +22,7 @@ LocaleConfig.locales['es'] = {
 LocaleConfig.defaultLocale = 'es';
 
 const Calendario = () => {
+    const hours = useSelector((state) => state.hours.data);
 
     const dispatch = useDispatch();
     const [selectedDate, setSelectedDate] = useState(null);

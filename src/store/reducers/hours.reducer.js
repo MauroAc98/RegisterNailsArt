@@ -1,6 +1,6 @@
 import { hoursTypes } from "../types";
 
-const { ADD_HOUR, GET_HOURS } = hoursTypes;
+const { ADD_HOUR, GET_HOURS, DELETE_HOUR } = hoursTypes;
 
 
 const initialState = {
@@ -17,16 +17,14 @@ const HoursReducer = (state = initialState, action) => {
 
         case GET_HOURS:
 
-        return {
-            ...state,
-            data: action.result,
-        };
-        // case REMOVE_TURN:
-        //     const filteredTurn = state.data.filter((item) => item.id !== action.id)
-        //     return {
-        //         ...state,
-        //         data: filteredTurn,
-        //     };
+            return {
+                ...state,
+                data: action.result,
+            };
+        case DELETE_HOUR:
+            return {
+                ...state,
+            };
         default:
             return state;
     }
