@@ -44,7 +44,7 @@ const Calendario = () => {
     useFocusEffect(
         useCallback(() => {
             dispatch(refreshDate(hours))
-        }, [dispatch])
+        }, [hours])
     );
 
     const CustomDayComponent = ({ date, state }) => {

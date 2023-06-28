@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, View, Text, Button } from "react-native";
 import { styles } from "./styles";
-import {COLORS} from "../../constants/index"
+import { COLORS } from "../../constants/index"
 
 const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDelete }) => {
   return (
@@ -15,14 +15,14 @@ const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDele
           </View>
           <View style={styles.buttonContainer}>
             <Button
-              title='Cancelar'
-              color={COLORS.primary}
-              onPress={onCancel}
-            />
-            <Button
               title='Eliminar'
               color={COLORS.primary}
               onPress={() => onDelete(selectedEvent.id)}
+            />
+            <Button
+              title='Cancelar'
+              color={COLORS.primary}
+              onPress={onCancel}
             />
           </View>
         </View>

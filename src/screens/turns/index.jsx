@@ -15,10 +15,10 @@ const Turns = () => {
   useFocusEffect(
     useCallback(() => {
       dispatch(getHours());
-      dispatch(refreshDate(data))
+      dispatch(refreshDate(data));
       dispatch(getTurns());
       setCalendarioKey((prevKey) => prevKey + 1);
-    }, [dispatch])
+    }, [])
   );
 
   return (
