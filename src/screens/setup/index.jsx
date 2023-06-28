@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { getHours, deleteHr, loadedHours } from '../../store/actions';
+import { getHours, deleteHr } from '../../store/actions';
 import { compareHours } from '../../util/functions';
-import { CustomModal } from '../../components/index';
+import { ModalHour } from '../../components/modal';
 
 const Config = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -36,11 +36,6 @@ const Config = () => {
         setModalVisible(false);
     }
 
-
-    // useEffect(() => {
-    //     dispatch(getHours());
-    // }, [dispatch]);
-
     return (
         <View style={styles.container}>
             <FlatList
@@ -48,12 +43,14 @@ const Config = () => {
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id.toString()}
             />
-            <CustomModal
+            <ModalHour
                 isVisible={modalVisible}
-                animationType='slide'
+                animationType='fade'
                 onCancel={onHandlerCancelModal}
                 onDelete={onHandlerDeleteEvent}
                 selectedEvent={selectedEvent}
+                title={"Detalles del Horario"}
+                detailMessage={"El horario seleccionado se eliminará. ¿Quiere confirmar?"}
             />
         </View>
     );

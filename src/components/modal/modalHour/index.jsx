@@ -1,21 +1,21 @@
 import React from "react";
 import { Modal, View, Text, Button } from "react-native";
 import { styles } from "./styles";
-import { COLORS } from "../../constants/index"
+import { COLORS } from "../../../constants/index"
 
-const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDelete }) => {
+const ModalHour = ({ isVisible, animationType, selectedEvent, onCancel, onDelete,title,detailMessage }) => {
   return (
     <Modal visible={isVisible} animationType={animationType}>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text style={styles.title}>Detalles del Horario</Text>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.detailContainer}>
-            <Text style={styles.detailMessage}>El horario seleccionado se eliminará. ¿Quiere confirmar?</Text>
+            <Text style={styles.detailMessage}>{detailMessage}</Text>
             <Text style={styles.selectedEvent}>{selectedEvent?.hour}</Text>
           </View>
           <View style={styles.buttonContainer}>
             <Button
-              title='Eliminar'
+              title='Confirmar'
               color={COLORS.primary}
               onPress={() => onDelete(selectedEvent.id)}
             />
@@ -31,4 +31,4 @@ const CustomModal = ({ isVisible, animationType, selectedEvent, onCancel, onDele
   )
 };
 
-export default CustomModal;
+export default ModalHour;

@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         borderBottomColor: COLORS.disabledBlack,
         borderBottomWidth: 1,
         fontFamily: 'Philosopher-Regular',
-        fontSize: 16,
+        fontSize: 18,
     },
   
     text: {

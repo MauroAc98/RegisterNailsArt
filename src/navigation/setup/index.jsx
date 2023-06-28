@@ -12,7 +12,7 @@ const SetupNavigator = () => {
     return (
         <Stack.Navigator initialRouteName='Setup' >
             <Stack.Screen name='Setup' component={Config} options={({navigation}) => ({
-                title: "Configurar horarios",
+                title: "Horarios disponibles",
                 headerRight: () => (
                     <TouchableOpacity onPress={() => navigation.navigate('AddHour')}>
                         <Ionicons name="add-circle-outline" size={30} color={COLORS.lightGray} />

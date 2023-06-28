@@ -64,15 +64,31 @@ export const getTurns = () => {
         } catch (error) {
             console.log(error);
         }
-
     }
 };
 
 
-export const removeTurn = (id) => ({
-    type: REMOVE_TURN,
-    id,
-});
+export const deleteTurn = (id) => {
+    return async (dispatch) => {
+      try {
+        const response = await fetch(`${FIREBASE_REAL_TIME_URL_DB}/turnos/${id}.json`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+  
+        const result = await response.json();
+  
+        dispatch({
+          type: REMOVE_TURN,
+          id,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
 
 export const filterTurn = (fecha) => ({
     type: FILTER_TURN,

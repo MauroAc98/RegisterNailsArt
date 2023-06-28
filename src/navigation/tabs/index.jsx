@@ -4,7 +4,7 @@ import ListNavigator from "../listTurns";
 import SeputNavigator from "../setup";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Animated } from "react-native";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { COLORS } from "../../constants";
 
@@ -14,6 +14,7 @@ const BottomTab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
     const turns = useSelector((state) => state.turns.data);
+    const [turnsLength, setTurnsLength] = useState(0);
     const animatedValue = useRef(new Animated.Value(0)).current;
     const tabIconAnimation = () => {
         Animated.timing(animatedValue, {
@@ -26,6 +27,12 @@ const TabsNavigator = () => {
     useEffect(() => {
         tabIconAnimation();
     }, [tabIconAnimation]);
+
+    useEffect(() => {
+        if (turns) {
+            setTurnsLength(turns.length);
+        }
+    }, [turns]);
 
 
     return (
@@ -76,7 +83,7 @@ const TabsNavigator = () => {
 
             <BottomTab.Screen name='listTurnsTab' component={ListNavigator} options={{
                 tabBarLabel: "Ver Turnos",
-                tabBarBadge: turns?.length,
+                tabBarBadge: turnsLength,
                 tabBarBadgeStyle: {
                     backgroundColor: COLORS.primary,
                     color: COLORS.white,

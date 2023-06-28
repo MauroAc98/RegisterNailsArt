@@ -26,10 +26,9 @@ const TurnReducer = (state = initialState, action) => {
                 noTurnsRetrieved: false,
             };
         case REMOVE_TURN:
-            const filteredTurn = state.data.filter((item) => item.id !== action.id)
             return {
                 ...state,
-                data: filteredTurn,
+                data: state.data.filter((turn) => turn.id !== action.id),
             };
 
         case NO_TURNS_RETRIEVED:

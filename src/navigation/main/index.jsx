@@ -21,7 +21,7 @@ const MainNavigator = ({ navigation }) => {
         <Stack.Navigator initialRouteName='Turnos'
         >
             <Stack.Screen name='Turnos' component={Turns} options={() => ({
-                title: "Seleccionar fecha",
+                title: "Calendario",
                 headerRight: () => (
                     <TouchableOpacity onPress={onHandlerHour}>
                         <Ionicons name="time-outline" size={30} color={COLORS.lightGray} />

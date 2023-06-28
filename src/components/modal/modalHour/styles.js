@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import {COLORS} from "../../constants/index"
+import {COLORS} from "../../../constants";
 export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   title: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontFamily:'Philosopher-Bold',
     marginBottom: 10,
     textAlign: "center"
   },
@@ -17,8 +17,10 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   detailMessage: {
-    fontSize: 14,
+    fontFamily:'Philosopher-Regular',
+    fontSize: 16,
     color:  COLORS.text,
+    textAlign: "center"
   },
   selectedEvent: {
     fontSize: 14,
