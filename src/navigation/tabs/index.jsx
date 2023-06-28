@@ -36,9 +36,8 @@ const TabsNavigator = () => {
                     fontFamily: "Philosopher-Bold",
                     fontSize: 11,
                 },
-
+                unmountOnBlur: true,
             }}>
-
 
             <BottomTab.Screen name='setupTab' component={SeputNavigator} options={{
                 tabBarLabel: "",
@@ -53,7 +52,7 @@ const TabsNavigator = () => {
                 tabBarLabelStyle: {
                     color: COLORS.white,
                     fontFamily: 'Philosopher-Bold',
-                    fontSize:12
+                    fontSize: 12
                 },
             }} />
 
@@ -70,7 +69,7 @@ const TabsNavigator = () => {
                 tabBarLabelStyle: {
                     color: COLORS.white,
                     fontFamily: 'Philosopher-Bold',
-                    fontSize:12
+                    fontSize: 12
                 },
             }} />
 
@@ -90,12 +89,12 @@ const TabsNavigator = () => {
                     </Animated.View>
                 ),
                 tabBarStyle: {
-                    backgroundColor: COLORS.primary, 
+                    backgroundColor: COLORS.primary,
                 },
                 tabBarLabelStyle: {
                     color: COLORS.white,
                     fontFamily: 'Philosopher-Bold',
-                    fontSize:12
+                    fontSize: 12
                 },
             }} />
         </BottomTab.Navigator>

@@ -3,16 +3,16 @@ import { COLORS } from "../../constants";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingVertical: 30,
     backgroundColor: COLORS.background,
-    flex: 1,
+    marginBottom:40
   },
-  containerConfirm: {
-    paddingVertical: 20,
-    backgroundColor: COLORS.background,
-    marginHorizontal: 40
+  font:{
+    fontSize: 19,
+    fontFamily:'Philosopher-Regular'
   },
-
+  colorCheck:{
+    color:COLORS.primary
+  }
 });
 
 export default styles;

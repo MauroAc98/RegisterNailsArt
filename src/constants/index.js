@@ -1,3 +1,3 @@
-export * from './data/schedules';
+export * from './data/services';
 export * from './themes/colors';
 export * from './firebase'

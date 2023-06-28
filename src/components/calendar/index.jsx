@@ -5,8 +5,11 @@ import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 import 'moment/locale/es';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterTurn } from '../../store/actions';
+import { filterTurn, refreshDate } from '../../store/actions';
 import { useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from 'react';
+
 
 
 moment.locale('es');
@@ -28,10 +31,21 @@ const Calendario = () => {
     const [selectedDate, setSelectedDate] = useState(null);
 
     const handleDayPress = (day) => {
+        const currentDate = moment();
+        const selectedDate = moment(day.dateString);
+
+        if (selectedDate.isBefore(currentDate, 'day')) {
+            return;
+        }
         dispatch(filterTurn(day.dateString));
         setSelectedDate(day.dateString);
     };
 
+    useFocusEffect(
+        useCallback(() => {
+            dispatch(refreshDate(hours))
+        }, [dispatch])
+    );
 
     const CustomDayComponent = ({ date, state }) => {
         const isSelected = selectedDate === date.dateString;

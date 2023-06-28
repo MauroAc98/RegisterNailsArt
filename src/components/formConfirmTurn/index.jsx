@@ -7,7 +7,7 @@ import { formatter } from '../../util/functions';
 
 
 
-const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmTurn }) => {
+const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmClient }) => {
 
     const [cliente, setCliente] = useState('');
 
@@ -17,7 +17,7 @@ const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmTurn }) => {
     }, []);
 
     useEffect(() => {
-        onConfirmTurn(cliente);
+        onConfirmClient(cliente);
     }, [cliente])
 
     return (

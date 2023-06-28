@@ -18,7 +18,8 @@ const MainNavigator = ({ navigation }) => {
     }
 
     return (
-        <Stack.Navigator initialRouteName='Turnos'>
+        <Stack.Navigator initialRouteName='Turnos'
+        >
             <Stack.Screen name='Turnos' component={Turns} options={() => ({
                 title: "Seleccionar fecha",
                 headerRight: () => (
@@ -28,7 +29,7 @@ const MainNavigator = ({ navigation }) => {
                 ),
                 headerTitleStyle: {
                     color: COLORS.white,
-                    fontFamily:'Philosopher-Regular',
+                    fontFamily: 'Philosopher-Regular',
                     fontSize: 20,
                 },
                 headerStyle: {
@@ -36,10 +37,10 @@ const MainNavigator = ({ navigation }) => {
                 }
             })} />
             <Stack.Screen name='Horarios' component={Schedules} options={({ route }) => ({
-                title: formatter(route.params.selectedDate,'normal'),
+                title: formatter(route.params.selectedDate, 'normal'),
                 headerTitleStyle: {
                     color: COLORS.white,
-                    fontFamily:'Philosopher-Regular',
+                    fontFamily: 'Philosopher-Regular',
                     fontSize: 20,
                 },
                 headerStyle: {
@@ -50,7 +51,7 @@ const MainNavigator = ({ navigation }) => {
             <Stack.Screen name='Confirmar' component={ConfirmTurn} options={() => ({
                 title: "Confirmar turno",
                 headerTitleStyle: {
-                    fontFamily:'Philosopher-Regular',
+                    fontFamily: 'Philosopher-Regular',
                     fontSize: 20,
                     color: COLORS.white,
                 },
@@ -58,6 +59,7 @@ const MainNavigator = ({ navigation }) => {
                     backgroundColor: COLORS.primary
                 }
             })} />
+
         </Stack.Navigator>
     );
 };

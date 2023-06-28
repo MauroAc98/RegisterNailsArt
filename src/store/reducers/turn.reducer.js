@@ -57,7 +57,6 @@ const TurnReducer = (state = initialState, action) => {
                 availableSchedules: state.data ? availables : state.schedules,
                 selectedDate: action.fecha
             };
-
         default:
             return state;
     }

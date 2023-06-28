@@ -9,7 +9,7 @@ const TurnItem = ({ item: { item }, onSelected }) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={{ ...styles.containerTouchable, backgroundColor: item.color }} onPress={() => onSelected(item)}>
+            <TouchableOpacity style={{ ...styles.containerTouchable }} onPress={() => onSelected(item)}>
                 <View style={styles.containerData}>
                     <View style={styles.containerTop}>
                         <View style={styles.containerGroup}>
@@ -21,7 +21,7 @@ const TurnItem = ({ item: { item }, onSelected }) => {
                         <View style={styles.containerClient}>
                             <Icon name={'user-circle'} size={20} color="black" />
                             <Text style={styles.textClient}>
-                                {formatter(item.cliente, 'strReduced')}
+                                {formatter(item.cliente, 'strReduced',15)}
                             </Text>
                         </View>
                     </View>
@@ -30,6 +30,11 @@ const TurnItem = ({ item: { item }, onSelected }) => {
                             <Icon name={'clock-o'} size={20} color="black" />
                             <Text style={styles.text}>
                                 {item.hora}
+                            </Text>
+                        </View>
+                        <View style={styles.containerClient}>
+                            <Text style={styles.textService}>
+                                {formatter(item.services.join(" - "), 'strReduced',25)}
                             </Text>
                         </View>
 

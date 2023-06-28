@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
 
     containerClient: {
         alignItems: 'center',
-        marginVertical: 10,
+        marginVertical: 15,
     },
     input: {
         textAlign: 'center',

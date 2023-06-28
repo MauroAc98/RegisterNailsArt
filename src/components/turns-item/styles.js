@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
         elevation: 3,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor:COLORS.backgroundList
     },
 
     text: {
@@ -46,7 +47,13 @@ export const styles = StyleSheet.create({
     containerClient: {
         width: 200,
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+    },
+
+    textService:{
+        color:COLORS.primary,
+        fontFamily: 'Philosopher-Bold',
+        fontSize: 16,
     },
 
     textClient: {
@@ -66,4 +73,5 @@ export const styles = StyleSheet.create({
         flexDirection: "row-reverse",
         justifyContent: "space-between"
     },
+   
 });

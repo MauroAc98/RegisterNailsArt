@@ -2,7 +2,7 @@ import moment from 'moment';
 import 'moment/locale/es';
 
 
-export const formatter = (caracter, type) => {
+export const formatter = (caracter, type, max) => {
     moment.locale('es');
     switch (type) {
         case 'reduced':
@@ -10,10 +10,18 @@ export const formatter = (caracter, type) => {
         case 'normal':
             return moment(caracter).format('dddd, D [de] MMMM ');
         case 'strReduced':
-            if (caracter.length > 15) {
-                return caracter.substring(0, 15) + "..";
+            if (caracter.length <= max) {
+                return caracter;
+            } else {
+                let truncatedText = caracter.substring(0, max - 1);
+                if (truncatedText.slice(-1) === "-") {
+                    truncatedText = truncatedText.slice(0, -1);
+                }
+                if (truncatedText.length > max) {
+                    return truncatedText.substring(0, max) + "..";
+                }
+                return truncatedText + "..";
             }
-            return caracter;
         default:
             return type;
     }
@@ -26,7 +34,7 @@ export const compareHours = (a, b) => {
     if (timeA !== timeB) {
         return timeA - timeB;
     } else {
-        return getAmPmValue(a.hour) - getAmPmValue(b.hour); 
+        return getAmPmValue(a.hour) - getAmPmValue(b.hour);
     }
 };
 
@@ -38,7 +46,7 @@ const getTimeInMinutes = (hour) => {
     let timeInMinutes = parseInt(hours, 10) * 60 + parseInt(minutes, 10);
 
     if (ampm === "PM") {
-        timeInMinutes += 12 * 60; 
+        timeInMinutes += 12 * 60;
     }
 
     return timeInMinutes;
@@ -48,4 +56,7 @@ const getTimeInMinutes = (hour) => {
 const getAmPmValue = (hour) => {
     return hour.endsWith("AM") ? 0 : 1;
 };
+
+
+
 
