@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View, Button } from 'react-native';
+import { View, Button, ScrollView } from 'react-native';
 import { styles } from './styles';
-import { FormConfirmTurn, CheckServices } from "../../components";
+import { FormConfirmTurn, CheckServices, ImageSelector } from "../../components";
 import { useDispatch } from 'react-redux';
 import { addTurn } from "../../store/actions";
 import { COLORS } from "../../constants";
@@ -14,6 +14,7 @@ const ConfirmTurn = ({ route, navigation }) => {
     const dispatch = useDispatch();
     const [cliente, setCliente] = useState('');
     const [services, setServices] = useState([]);
+    const [image, setImage] = useState('')
 
     const handleConfirmClient = (clienteValue) => {
         setCliente(clienteValue);
@@ -38,14 +39,19 @@ const ConfirmTurn = ({ route, navigation }) => {
         navigation.navigate('Turnos');
     }
 
+    const onImage = (imageUri) => {
+        setImage(imageUri)
+    }
+
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.containerConfirm}>
                 <FormConfirmTurn selectedDate={selectedDate} selectedTime={selectedTime} onConfirmClient={handleConfirmClient} />
                 <CheckServices services={handleConfirmService} />
-                <Button title={'Confirmar turno'} onPress={turnOk} color={COLORS.primary} />
+                <ImageSelector onImage={onImage} />
+                <Button title={'Confirmar'} onPress={turnOk} color={COLORS.primary} />
             </View>
-        </View>
+        </ScrollView>
     );
 }
 

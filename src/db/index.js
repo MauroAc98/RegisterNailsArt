@@ -9,17 +9,26 @@ export const init = () => {
                 "CREATE TABLE IF NOT EXISTS hours (id INTEGER PRIMARY KEY NOT NULL,hour TEXT NOT NULL UNIQUE)",
                 [],
                 () => {
-                    resolve();
+                    tx.executeSql(
+                        "CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY NOT NULL, image TEXT NOT NULL, id_turn INTEGER NOT NULL)",
+                        [],
+                        () => {
+                            resolve();
+                        },
+                        (_, err) => {
+                            reject(err);
+                        }
+                    );
                 },
                 (_, err) => {
                     reject(err);
                 }
-
             );
         });
     });
     return promise;
 };
+
 
 
 export const insertHour = (hour) => {

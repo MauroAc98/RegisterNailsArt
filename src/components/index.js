@@ -5,3 +5,4 @@ export { default as TurnItem } from './turns-item/index';
 export { default as TimePicker } from './timePicker/index';
 export { default as ButtonCustom } from './buttonCustom/index';
 export { default as CheckServices } from './checkServices/index';
+export { default as ImageSelector } from './image-selector/index';

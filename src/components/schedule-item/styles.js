@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../constants";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: 180,
+        height: 120,
         borderRadius: 10,
         marginHorizontal: 20,
         marginVertical:10
@@ -24,6 +25,7 @@ export const styles = StyleSheet.create({
     },
     name: {
         fontSize: 18,
-        fontFamily:'Philosopher-Regular'
+        fontFamily:'Philosopher-Regular',
+        color:COLORS.text
     },
 });
