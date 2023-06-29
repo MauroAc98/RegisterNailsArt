@@ -10,8 +10,6 @@ import { useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
 
-
-
 moment.locale('es');
 
 LocaleConfig.locales['es'] = {
@@ -26,7 +24,6 @@ LocaleConfig.defaultLocale = 'es';
 
 const Calendario = () => {
     const hours = useSelector((state) => state.hours.data);
-
     const dispatch = useDispatch();
     const [selectedDate, setSelectedDate] = useState(null);
 

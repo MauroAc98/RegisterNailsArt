@@ -18,7 +18,7 @@ const Turns = () => {
       dispatch(refreshDate(data));
       dispatch(getTurns());
       setCalendarioKey((prevKey) => prevKey + 1);
-    }, [dispatch])
+    }, [])
   );
 
   return (

@@ -1,11 +1,10 @@
-import { insertHour, selectHours,deleteHour } from "../../db";
+import { insertHour, selectHours, deleteHour } from "../../db";
 import { hoursTypes } from "../types";
 
-const { ADD_HOUR, GET_HOURS,DELETE_HOUR } = hoursTypes
+const { ADD_HOUR, GET_HOURS, DELETE_HOUR } = hoursTypes
 
 
 export const addHour = (fecha) => {
-
     return async (dispatch) => {
         try {
             const result = await insertHour(fecha);
@@ -15,49 +14,45 @@ export const addHour = (fecha) => {
                 result,
             });
         } catch (error) {
-            console.log(error);
+            if (error.message.includes('UNIQUE constraint failed') || error.code === 2067) {
+                console.log('Error: Ya existe la hora');
+            } else {
+                console.log(error);
+            }
         }
-    }
+    };
 };
 
 export const deleteHr = (id) => {
-
     return async (dispatch) => {
         try {
-
             const result = await deleteHour(id);
 
             dispatch({
                 type: DELETE_HOUR,
-                result
+                result,
             });
-
         } catch (error) {
             console.log(error);
         }
-
-    }
+    };
 };
 
-
 export const getHours = () => {
-
     return async (dispatch) => {
         try {
-
             const result = await selectHours();
 
             dispatch({
                 type: GET_HOURS,
                 result: result?.rows?._array,
             });
-
         } catch (error) {
             console.log(error);
         }
-
-    }
+    };
 };
+
 
 
 
