@@ -12,8 +12,7 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         justifyContent: "center",
         alignItems: "center",
-        borderWidth: 0.9,
-        borderColor: COLORS.disabledBlack
+        backgroundColor:COLORS.backgroundList
     },
     image: {
         width: '100%',

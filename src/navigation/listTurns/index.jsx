@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ListTurns } from '../../screens';
+import { ListTurns, TurnDetails } from '../../screens';
 import { COLORS } from '../../constants';
+import { TurnItem } from '../../components';
 
 
 
@@ -20,6 +21,19 @@ const ListNavigator = () => {
                     backgroundColor: COLORS.primary
                 }
             })} />
+
+            <Stack.Screen name='Detalle' component={TurnDetails} options={() => ({
+                title: "Detalles del turno",
+                headerTitleStyle: {
+                    fontFamily: 'Philosopher-Regular',
+                    fontSize: 20,
+                    color: COLORS.white,
+                },
+                headerStyle: {
+                    backgroundColor: COLORS.primary
+                }
+            })} />
+
         </Stack.Navigator>
     );
 };

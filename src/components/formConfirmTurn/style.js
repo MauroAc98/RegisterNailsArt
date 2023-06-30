@@ -22,13 +22,14 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
         borderBottomColor: COLORS.disabledBlack,
         borderBottomWidth: 1,
-        fontFamily: 'Philosopher-Bold',
+        fontFamily: 'Philosopher-Regular',
         fontSize: 16,
     },
   
     text: {
-        fontSize: 20,
-        fontFamily: 'Philosopher-Regular'
+        fontSize: 22,
+        fontFamily: 'Philosopher-Bold',
+        color:COLORS.primary
     },
     
 });

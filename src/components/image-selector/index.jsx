@@ -3,7 +3,7 @@ import { styles } from './styles';
 import { useState } from 'react';
 import { COLORS } from '../../constants';
 import Icon from "react-native-vector-icons/FontAwesome";
-import { requestCameraPermissionsAsync, launchCameraAsync ,requestMediaLibraryPermissionsAsync} from "expo-image-picker";
+import { requestCameraPermissionsAsync, launchCameraAsync } from "expo-image-picker";
 
 export const ImageSelector = ({ onImage }) => {
     const [pickedUrl, setPickedUrl] = useState(null);
@@ -36,7 +36,7 @@ export const ImageSelector = ({ onImage }) => {
         <View style={styles.container}>
             <View style={styles.preview}>
                 {!pickedUrl ? (
-                   <Icon name="image" size={30} />
+                   <Icon name="image" size={30} color={COLORS.primary} />
                 ) : (
                     <Image style={styles.image} source={{ uri: pickedUrl }} />
                 )}

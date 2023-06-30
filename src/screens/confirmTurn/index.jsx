@@ -35,12 +35,13 @@ const ConfirmTurn = ({ route, navigation }) => {
             cliente: cliente,
             services: services
         }
-        dispatch(addTurn(turn,image));
+        
+        dispatch(addTurn(turn, image));
         navigation.navigate('Turnos');
     }
 
     const onImage = (imageUri) => {
-        setImage(imageUri)
+        setImage(imageUri);
     }
 
     return (

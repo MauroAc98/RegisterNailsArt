@@ -29,12 +29,50 @@ export const init = () => {
     return promise;
 };
 
-export const insertImageTurn = (image,id_turn) => {
+export const insertImageTurn = (image, id_turn) => {
     const promise = new Promise((resolve, reject) => {
         db.transaction((tx) => {
             tx.executeSql(
                 "INSERT INTO images (image,id_turn) VALUES (?,?)",
-                [image,id_turn],
+                [image, id_turn],
+                (_, result) => {
+                    resolve(result);
+                },
+                (_, err) => {
+                    reject(err);
+                }
+
+            );
+        });
+    });
+    return promise;
+}
+
+export const deleteImage = (id) => {
+    const promise = new Promise((resolve, reject) => {
+        db.transaction((tx) => {
+            tx.executeSql(
+                "DELETE FROM images where id_turn=(?)",
+                [id],
+                (_, result) => {
+                    resolve(result);
+                },
+                (_, err) => {
+                    reject(err);
+                }
+
+            );
+        });
+    });
+    return promise;
+}
+
+export const selectImage = (id_turn) => {
+    const promise = new Promise((resolve, reject) => {
+        db.transaction((tx) => {
+            tx.executeSql(
+                "SELECT image FROM images where id_turn=(?)",
+                [id_turn],
                 (_, result) => {
                     resolve(result);
                 },

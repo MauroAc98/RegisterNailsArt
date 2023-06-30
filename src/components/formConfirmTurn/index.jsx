@@ -25,7 +25,7 @@ const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmClient }) => {
             <View style={styles.container}>
                 <View style={styles.containerDate}>
                     <Text style={styles.text}>
-                        {formatter(selectedDate,'normal')}
+                        {formatter(selectedDate, 'normal')}
                     </Text>
                     <Text style={styles.text}>
                         {selectedTime}
@@ -36,7 +36,7 @@ const FormConfirmTurn = ({ selectedTime, selectedDate, onConfirmClient }) => {
                     <TextInput style={styles.input}
                         value={cliente}
                         onChangeText={onChangeCliente}
-                        placeholder="Ingresa nombre completo del cliente"
+                        placeholder="Para quién será el turno? Indicar Aquí.."
                     />
                     <KeyboardAwareScrollView />
 

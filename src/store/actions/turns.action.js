@@ -1,8 +1,8 @@
 import { turnsTypes } from "../types";
 import { FIREBASE_REAL_TIME_URL_DB } from '../../constants/index';
-import { insertImageTurn } from '../../db'
+import { insertImageTurn, deleteImage, selectImage } from '../../db'
 
-const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE, GET_TURNS, NO_TURNS_RETRIEVED } = turnsTypes
+const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE, GET_TURNS, NO_TURNS_RETRIEVED, GET_IMAGE } = turnsTypes
 
 
 export const addTurn = (turn, image) => {
@@ -21,11 +21,12 @@ export const addTurn = (turn, image) => {
 
             const result = await response.json();
 
-            const resultImage = await insertImageTurn(image, result.name);
+            if (image.trim() !== '') {
+                await insertImageTurn(image, result.name);
+            }
             dispatch({
                 type: ADD_TURN,
                 result,
-                resultImage
             });
         } catch (error) {
             console.log(error);
@@ -33,7 +34,20 @@ export const addTurn = (turn, image) => {
     }
 };
 
+export const getImage = (id) => {
+    return async (dispatch) => {
+        try {
+            const result = await selectImage(id);
 
+            dispatch({
+                type: GET_IMAGE,
+                result: result?.rows?._array,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
 
 
 export const getTurns = () => {
@@ -82,7 +96,9 @@ export const deleteTurn = (id) => {
                 },
             });
 
-            const result = await response.json();
+            await response.json();
+
+            await deleteImage(id);
 
             dispatch({
                 type: REMOVE_TURN,

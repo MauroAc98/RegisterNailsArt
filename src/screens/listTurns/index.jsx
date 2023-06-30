@@ -1,21 +1,27 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { View, FlatList, SafeAreaView } from 'react-native';
 import { styles } from './styles';
-import {TurnItem } from "../../components";
+import { TurnItem } from "../../components";
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteTurn } from "../../store/actions";
+import { deleteTurn, getImage } from "../../store/actions";
 import { ModalTurn } from "../../components/modal";
 
 
-const ListTurns = () => {
+const ListTurns = ({ navigation }) => {
     const turnsData = useSelector((state) => state.turns.data);
     const keyExtractor = (item) => item.id.toString();
-    const renderItem = ({ item }) => <TurnItem item={item} onSelected={() => onHandlerEvent(item.id)} />;
+    const renderItem = ({ item }) => <TurnItem item={item} onSelected={() => onHandlerEvent(item.id)} onDetails={() => onHandlerDetails(item)} />;
     const dispatch = useDispatch();
-
 
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
+
+    const onHandlerDetails = async (item) => {
+        dispatch(getImage(item.id)).then(() => {
+            navigation.navigate('Detalle', { item: item });
+        });
+    }
+
     const onHandlerEvent = (id) => {
         setModalVisible(!modalVisible);
         const selectedEvent = turnsData.find((item) => item.id === id);
