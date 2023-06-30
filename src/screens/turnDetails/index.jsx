@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { useSelector } from "react-redux";
 import { formatter } from '../../util/functions';
 import Icon from "react-native-vector-icons/FontAwesome";
+import { COLORS } from "../../constants";
 
 
 const TurnDetails = ({ route }) => {
