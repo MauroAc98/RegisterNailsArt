@@ -35,7 +35,7 @@ const ConfirmTurn = ({ route, navigation }) => {
             cliente: cliente,
             services: services
         }
-        dispatch(addTurn(turn));
+        dispatch(addTurn(turn,image));
         navigation.navigate('Turnos');
     }
 

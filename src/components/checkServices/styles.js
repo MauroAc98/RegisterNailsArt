@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
     marginBottom:40
   },
   font:{
-    fontSize: 19,
-    fontFamily:'Philosopher-Regular'
+    fontSize: 16,
+    fontFamily:'Philosopher-Bold'
   },
   colorCheck:{
     color:COLORS.primary

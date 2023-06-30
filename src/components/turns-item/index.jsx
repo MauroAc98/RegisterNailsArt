@@ -4,12 +4,14 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { formatter } from "../../util/functions";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { COLORS } from "../../constants";
+import ButtonCustom from "../buttonCustom";
 
 const TurnItem = ({ item: { item }, onSelected }) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={{ ...styles.containerTouchable }} onPress={() => onSelected(item)}>
+            <TouchableOpacity style={{ ...styles.containerTouchable }}>
                 <View style={styles.containerData}>
                     <View style={styles.containerTop}>
                         <View style={styles.containerGroup}>
@@ -21,7 +23,7 @@ const TurnItem = ({ item: { item }, onSelected }) => {
                         <View style={styles.containerClient}>
                             <Icon name={'user-circle'} size={20} color="black" />
                             <Text style={styles.textClient}>
-                                {formatter(item.cliente, 'strReduced',15)}
+                                {formatter(item.cliente, 'strReduced', 15)}
                             </Text>
                         </View>
                     </View>
@@ -34,10 +36,13 @@ const TurnItem = ({ item: { item }, onSelected }) => {
                         </View>
                         <View style={styles.containerClient}>
                             <Text style={styles.textService}>
-                                {formatter(item.services.join(" - "), 'strReduced',25)}
+                                {formatter(item.services.join(" - "), 'strReduced', 25)}
                             </Text>
                         </View>
-
+                    </View>
+                    <View style={styles.containerButtom}>
+                        <ButtonCustom onPress={() => null} name={'angle-double-right'} color={COLORS.white} background={COLORS.lightPrimary} />
+                        <ButtonCustom onPress={() => onSelected(item)} name={'trash'} color={COLORS.white} background={COLORS.lightPrimary} />
                     </View>
                 </View>
             </TouchableOpacity>

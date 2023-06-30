@@ -8,9 +8,9 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   containerConfirm: {
-    paddingVertical: 20,
     backgroundColor: COLORS.background,
-    marginHorizontal: 40
+    marginHorizontal: 40,
+    marginBottom:50
   },
 
 });

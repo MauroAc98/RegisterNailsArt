@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { useState } from "react";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ButtonCustom from "../buttonCustom";
+import { COLORS } from "../../constants";
 
 
 const TimePicker = ({ onConfirmHour }) => {
@@ -39,7 +40,7 @@ const TimePicker = ({ onConfirmHour }) => {
 
     return (
         <View style={styles.container}>
-            <ButtonCustom onPress={handleTimePress} name={'clock-o'} />
+            <ButtonCustom onPress={handleTimePress} name={'clock-o'} color={COLORS.white} background={COLORS.primary} />
 
             {showTimePicker && (
                 <DateTimePicker

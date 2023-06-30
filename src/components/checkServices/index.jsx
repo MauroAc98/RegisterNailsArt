@@ -7,11 +7,11 @@ import { Checkbox } from 'react-native-paper';
 const CheckServices = ({ services }) => {
 
     const [checkStates, setCheckStates] = useState([
-        { checked: false, label: 'Softgel' },
-        { checked: false, label: 'Capping' },
-        { checked: false, label: 'Semipermanente (Manos)' },
-        { checked: false, label: 'Semipermanente (Pies)' },
-        { checked: false, label: 'Retirado' },
+        { checked: false, label: 'SOFTGEL' },
+        { checked: false, label: 'CAPPING' },
+        { checked: false, label: 'SEMIPERMANENTE (Manos)' },
+        { checked: false, label: 'SEMIPERMANENTE (Pies)' },
+        { checked: false, label: 'RETIRADO' },
     ]);
 
 

@@ -1,10 +1,11 @@
 import { turnsTypes } from "../types";
-import { FIREBASE_REAL_TIME_URL_DB } from '../../constants/index'
+import { FIREBASE_REAL_TIME_URL_DB } from '../../constants/index';
+import { insertImageTurn } from '../../db'
 
 const { ADD_TURN, REMOVE_TURN, FILTER_TURN, REFRESH_DATE, GET_TURNS, NO_TURNS_RETRIEVED } = turnsTypes
 
 
-export const addTurn = (turn) => {
+export const addTurn = (turn, image) => {
 
     return async (dispatch) => {
         try {
@@ -19,9 +20,12 @@ export const addTurn = (turn) => {
             });
 
             const result = await response.json();
+
+            const resultImage = await insertImageTurn(image, result.name);
             dispatch({
                 type: ADD_TURN,
                 result,
+                resultImage
             });
         } catch (error) {
             console.log(error);
@@ -70,25 +74,25 @@ export const getTurns = () => {
 
 export const deleteTurn = (id) => {
     return async (dispatch) => {
-      try {
-        const response = await fetch(`${FIREBASE_REAL_TIME_URL_DB}/turnos/${id}.json`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-  
-        const result = await response.json();
-  
-        dispatch({
-          type: REMOVE_TURN,
-          id,
-        });
-      } catch (error) {
-        console.log(error);
-      }
+        try {
+            const response = await fetch(`${FIREBASE_REAL_TIME_URL_DB}/turnos/${id}.json`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            const result = await response.json();
+
+            dispatch({
+                type: REMOVE_TURN,
+                id,
+            });
+        } catch (error) {
+            console.log(error);
+        }
     };
-  };
+};
 
 export const filterTurn = (fecha) => ({
     type: FILTER_TURN,

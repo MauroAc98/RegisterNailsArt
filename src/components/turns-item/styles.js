@@ -4,7 +4,7 @@ import { COLORS } from "../../constants";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: 90,
+        height: 140,
         borderRadius: 10,
         marginHorizontal: 20,
         marginVertical: 10
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
         elevation: 3,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:COLORS.backgroundList
+        backgroundColor: COLORS.backgroundList
     },
 
     text: {
@@ -34,8 +34,8 @@ export const styles = StyleSheet.create({
 
     containerData: {
         flexDirection: "column",
-        height: 100,
-        justifyContent: "space-evenly"
+        height: '100%',
+        justifyContent: "space-evenly",
     },
 
     containerGroup: {
@@ -50,8 +50,8 @@ export const styles = StyleSheet.create({
         alignItems: "center",
     },
 
-    textService:{
-        color:COLORS.primary,
+    textService: {
+        color: COLORS.text,
         fontFamily: 'Philosopher-Bold',
         fontSize: 16,
     },
@@ -73,5 +73,11 @@ export const styles = StyleSheet.create({
         flexDirection: "row-reverse",
         justifyContent: "space-between"
     },
-   
+    containerButtom: {
+        flexDirection: "row",
+        alignSelf: "flex-end",
+        width: 75,
+        justifyContent: "space-between",
+    }
+  
 });

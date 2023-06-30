@@ -10,7 +10,7 @@ export const init = () => {
                 [],
                 () => {
                     tx.executeSql(
-                        "CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY NOT NULL, image TEXT NOT NULL, id_turn INTEGER NOT NULL)",
+                        "CREATE TABLE IF NOT EXISTS images (id INTEGER PRIMARY KEY NOT NULL, image TEXT NOT NULL, id_turn TEXT NOT NULL)",
                         [],
                         () => {
                             resolve();
@@ -29,7 +29,24 @@ export const init = () => {
     return promise;
 };
 
+export const insertImageTurn = (image,id_turn) => {
+    const promise = new Promise((resolve, reject) => {
+        db.transaction((tx) => {
+            tx.executeSql(
+                "INSERT INTO images (image,id_turn) VALUES (?,?)",
+                [image,id_turn],
+                (_, result) => {
+                    resolve(result);
+                },
+                (_, err) => {
+                    reject(err);
+                }
 
+            );
+        });
+    });
+    return promise;
+}
 
 export const insertHour = (hour) => {
     const promise = new Promise((resolve, reject) => {

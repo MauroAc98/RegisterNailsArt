@@ -22,8 +22,8 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
         borderBottomColor: COLORS.disabledBlack,
         borderBottomWidth: 1,
-        fontFamily: 'Philosopher-Regular',
-        fontSize: 18,
+        fontFamily: 'Philosopher-Bold',
+        fontSize: 16,
     },
   
     text: {
