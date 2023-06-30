@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, FlatList, SafeAreaView } from 'react-native';
+import { View, FlatList, SafeAreaView, Text } from 'react-native';
 import { styles } from './styles';
 import { TurnItem } from "../../components";
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,32 +33,33 @@ const ListTurns = ({ navigation }) => {
         setSelectedEvent(null);
     }
 
-
     const onHandlerDeleteEvent = (id) => {
-        dispatch(deleteTurn(id));
+        dispatch(deleteTurn(id))
         setModalVisible(false);
     }
 
-
     return (
-        <View style={styles.container}>
-            <SafeAreaView>
-                <FlatList
-                    data={turnsData}
-                    renderItem={renderItem}
-                    keyExtractor={keyExtractor}
-                />
-                <ModalTurn
-                    isVisible={modalVisible}
-                    animationType='fade'
-                    onCancel={onHandlerCancelModal}
-                    onDelete={onHandlerDeleteEvent}
-                    selectedEvent={selectedEvent}
-                    title={"Detalles del turno"}
-                    detailMessage={"El turno seleccionado se eliminará. ¿Quiere confirmar?"}
-                />
-            </SafeAreaView>
-        </View>
+        turnsData === undefined ? <Text style={styles.notTurns}>No hay turnos confirmados</Text> :
+            (
+                <View style={styles.container}>
+                    <SafeAreaView>
+                        <FlatList
+                            data={turnsData}
+                            renderItem={renderItem}
+                            keyExtractor={keyExtractor}
+                        />
+                        <ModalTurn
+                            isVisible={modalVisible}
+                            animationType='fade'
+                            onCancel={onHandlerCancelModal}
+                            onDelete={onHandlerDeleteEvent}
+                            selectedEvent={selectedEvent}
+                            title={"Detalles del turno"}
+                            detailMessage={"El turno seleccionado se eliminará. ¿Quiere confirmar?"}
+                        />
+                    </SafeAreaView>
+                </View>
+            )
     );
 };
 

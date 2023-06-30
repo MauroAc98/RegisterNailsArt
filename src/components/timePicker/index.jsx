@@ -40,7 +40,7 @@ const TimePicker = ({ onConfirmHour }) => {
 
     return (
         <View style={styles.container}>
-            <ButtonCustom onPress={handleTimePress} name={'clock-o'} color={COLORS.white} background={COLORS.primary} />
+            <ButtonCustom onPress={handleTimePress} name={'clock-o'} color={COLORS.white} background={COLORS.primary} size={20} />
 
             {showTimePicker && (
                 <DateTimePicker

@@ -6,12 +6,14 @@ import { getHours, deleteHr } from '../../store/actions';
 import { compareHours } from '../../util/functions';
 import { ModalHour } from '../../components/modal';
 
+
 const Config = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const dispatch = useDispatch();
     const data = useSelector((state) => state.hours.data);
     data.sort(compareHours);
+
 
     const renderItem = ({ item }) => (
         <TouchableOpacity style={styles.containerTouchable} onPress={() => onHandlerEvent(item.id)}>
@@ -36,24 +38,28 @@ const Config = () => {
         setModalVisible(false);
     }
 
-    return (
-        <View style={styles.container}>
-            <FlatList
-                data={data}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id.toString()}
-            />
-            <ModalHour
-                isVisible={modalVisible}
-                animationType='fade'
-                onCancel={onHandlerCancelModal}
-                onDelete={onHandlerDeleteEvent}
-                selectedEvent={selectedEvent}
-                title={"Detalles del Horario"}
-                detailMessage={"El horario seleccionado se eliminará. ¿Quiere confirmar?"}
-            />
-        </View>
+    return (data.length === 0 ? <Text style={styles.notHours}>No hay horarios disponibles</Text> :
+        (
+            <View style={styles.container}>
+                <FlatList
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id.toString()}
+                />
+                <ModalHour
+                    isVisible={modalVisible}
+                    animationType='fade'
+                    onCancel={onHandlerCancelModal}
+                    onDelete={onHandlerDeleteEvent}
+                    selectedEvent={selectedEvent}
+                    title={"Detalles del Horario"}
+                    detailMessage={"El horario seleccionado se eliminará. ¿Quiere confirmar?"}
+                />
+            </View>
+        )
     );
 };
+
+
 
 export default Config;

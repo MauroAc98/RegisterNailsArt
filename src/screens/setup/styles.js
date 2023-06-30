@@ -5,9 +5,9 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.background,
     paddingVertical: 20,
-    flex:1
+    flex: 1
   },
- 
+
   containerTouchable: {
     height: 80,
     borderRadius: 5,
@@ -31,6 +31,14 @@ export const styles = StyleSheet.create({
     fontFamily: 'Philosopher-Regular',
     color: COLORS.text,
   },
+  notHours: {
+    backgroundColor: COLORS.background,
+    flex: 1,
+    textAlign: "center",
+    paddingVertical: 60,
+    fontSize: 20,
+    fontFamily: 'Philosopher-Regular',
+  }
 
 });
 

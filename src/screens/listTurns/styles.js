@@ -8,5 +8,13 @@ export const styles = StyleSheet.create({
     },
     title:{
         fontFamily:'Philosopher-BoldItalic',
+    },
+    notTurns:{
+        backgroundColor: COLORS.background,
+        flex:1,
+        textAlign:"center",
+        paddingVertical:60,
+        fontSize:20,
+        fontFamily:'Philosopher-Regular',
     }
 });
