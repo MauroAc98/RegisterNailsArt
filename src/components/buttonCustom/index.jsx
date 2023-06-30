@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { styles } from "./styles";
 
 
-const ButtonCustom = ({ onPress, name, color, background }) => {
+const ButtonCustom = ({ onPress, name, color, background, size }) => {
     return (
         <TouchableOpacity style={{ ...styles.iconButtonContainer, backgroundColor: background }} onPress={onPress}>
-            <Icon name={name} size={20} color={color} />
+            <Icon name={name} size={size} color={color} />
         </TouchableOpacity>
     );
 };

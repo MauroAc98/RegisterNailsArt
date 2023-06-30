@@ -8,5 +8,6 @@ export const COLORS = {
     lightGray: "#F5F5F5",
     darkGray: "#7F7F7F",
     lightPrimary: "#B5938D",
-    backgroundList:"#faefed"
+    backgroundList:"#faefed",
+    primaryCustom:"#72544F"
   };

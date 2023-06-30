@@ -27,8 +27,8 @@ const TurnDetails = ({ route }) => {
       <View style={styles.containerTurnDetail}>
         <Text style={styles.text}>{formatter(turnDetails.item.fecha, 'normal')}</Text>
         <Text style={styles.text}>{turnDetails.item.hora}</Text>
-        <Text style={styles.text}>{turnDetails.item.cliente}</Text>
-        <Text style={styles.text}>{turnDetails.item.services.join(" - ")}</Text>
+        <Text style={styles.textCustom}>{turnDetails.item.cliente}</Text>
+        <Text style={styles.textCustom}>{turnDetails.item.services.join(" - ")}</Text>
       </View>
     </ScrollView>
   );

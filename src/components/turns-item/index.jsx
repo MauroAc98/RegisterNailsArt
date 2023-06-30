@@ -41,8 +41,8 @@ const TurnItem = ({ item: { item }, onSelected, onDetails }) => {
                         </View>
                     </View>
                     <View style={styles.containerButtom}>
-                        <ButtonCustom onPress={() => onDetails(item)} name={'angle-double-right'} color={COLORS.white} background={COLORS.lightPrimary} />
-                        <ButtonCustom onPress={() => onSelected(item)} name={'trash'} color={COLORS.white} background={COLORS.lightPrimary} />
+                        <ButtonCustom onPress={() => onDetails(item)} name={'angle-double-right'} color={COLORS.white} background={COLORS.lightPrimary} size={23}/>
+                        <ButtonCustom onPress={() => onSelected(item)} name={'trash'} color={COLORS.white} background={COLORS.lightPrimary} size={20} />
                     </View>
                 </View>
             </View>

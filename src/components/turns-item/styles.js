@@ -76,7 +76,7 @@ export const styles = StyleSheet.create({
     containerButtom: {
         flexDirection: "row",
         alignSelf: "flex-end",
-        width: 75,
+        width: 105,
         justifyContent: "space-between",
     }
   

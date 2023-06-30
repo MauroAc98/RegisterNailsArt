@@ -24,7 +24,6 @@ export const ImageSelector = ({ onImage }) => {
         const isCameraPermission = await verifyPermissions();
         if (!isCameraPermission) return;
         const image = await launchCameraAsync({
-            allowsEditing: true,
             aspect: [16, 9],
             quantity: 0.7
         });

@@ -1,14 +1,15 @@
 import moment from 'moment';
 import 'moment/locale/es';
+import { startCase } from 'lodash';
 
 
 export const formatter = (caracter, type, max) => {
     moment.locale('es');
     switch (type) {
         case 'reduced':
-            return moment(caracter).format('ddd DD/MM');
+            return startCase(moment(caracter).format('ddd DD/MM'));
         case 'normal':
-            return moment(caracter).format('dddd, D [de] MMMM ');
+            return startCase(moment(caracter).format('dddd, D [de] MMMM '));
         case 'strReduced':
             if (caracter.length <= max) {
                 return caracter;
